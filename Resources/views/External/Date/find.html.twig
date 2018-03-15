@@ -1,0 +1,101 @@
+{# Purpose of this template: Display a popup selector of dates for scribite integration #}
+{% set useFinder = true %}
+{% extends 'RKAlmanacModule::raw.html.twig' %}
+{% block title __('Search and select date') %}
+{% block content %}
+    <div class="container">
+        <div class="zikula-bootstrap-tab-container">
+            <ul class="nav nav-tabs">
+            {% set activatedObjectTypes = getModVar('RKAlmanacModule', 'enabledFinderTypes', []) %}
+            {% if 'date' in activatedObjectTypes %}
+                <li{{ objectType == 'date' ? ' class="active"' : '' }}><a href="{{ path('rkalmanacmodule_external_finder', {objectType: 'date', editor: editorName}) }}" title="{{ __('Search and select date') }}">{{ __('Dates') }}</a></li>
+            {% endif %}
+            </ul>
+        </div>
+        {% form_theme finderForm with [
+            '@RKAlmanacModule/Form/bootstrap_3.html.twig',
+            'ZikulaFormExtensionBundle:Form:form_div_layout.html.twig'
+        ] %}
+        {{ form_start(finderForm, {attr: {id: 'rKAlmanacModuleSelectorForm'}}) }}
+        {{ form_errors(finderForm) }}
+        <fieldset>
+            <legend>{{ __('Search and select date') }}</legend>
+            {% if featureActivationHelper.isEnabled(constant('RK\\AlmanacModule\\Helper\\FeatureActivationHelper::CATEGORIES'), 'date') %}
+                {{ form_row(finderForm.categories) }}
+            {% endif %}
+            {{ form_row(finderForm.onlyImages) }}
+            <div id="imageFieldRow">
+                {{ form_row(finderForm.imageField) }}
+            </div>
+            {{ form_row(finderForm.pasteAs) }}
+            <br />
+            <div class="form-group">
+                <label class="col-sm-3 control-label">{{ __('Date') }}:</label>
+                <div class="col-sm-9">
+                    <div id="rkalmanacmoduleItemContainer">
+                        {% if not onlyImages %}
+                            <ul>
+                        {% endif %}
+                            {% for date in items %}
+                                {% if not onlyImages or (attribute(date, imageField) is not empty and attribute(date, imageField ~ 'Meta').isImage) %}
+                                {% if not onlyImages %}
+                                    <li>
+                                {% endif %}
+                                    {% set itemId = date.getKey() %}
+                                    <a href="#" data-itemid="{{ itemId }}">
+                                        {% if onlyImages %}
+                                            {% set thumbOptions = attribute(thumbRuntimeOptions, 'date' ~ imageField[:1]|upper ~ imageField[1:]) %}
+                                            <img src="{{ attribute(date, imageField).getPathname()|imagine_filter('zkroot', thumbOptions) }}" alt="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}" width="{{ thumbOptions.thumbnail.size[0] }}" height="{{ thumbOptions.thumbnail.size[1] }}" class="img-rounded" />
+                                        {% else %}
+                                            {{ date|rkalmanacmodule_formattedTitle }}
+                                        {% endif %}
+                                    </a>
+                                    <input type="hidden" id="path{{ itemId }}" value="{{ path('rkalmanacmodule_date_display', {'id': date.getId()}) }}" />
+                                    <input type="hidden" id="url{{ itemId }}" value="{{ url('rkalmanacmodule_date_display', {'id': date.getId()}) }}" />
+                                    <input type="hidden" id="title{{ itemId }}" value="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}" />
+                                    <input type="hidden" id="desc{{ itemId }}" value="{% set description %}{% if date.dateDescription is not empty %}{{ date.dateDescription }}{% endif %}
+                                    {% endset %}{{ description|striptags|e('html_attr') }}" />
+                                    {% if onlyImages %}
+                                        <input type="hidden" id="imagePath{{ itemId }}" value="{{ app.request.basePath }}/{{ attribute(date, imageField).getPathname() }}" />
+                                    {% endif %}
+                                {% if not onlyImages %}
+                                    </li>
+                                {% endif %}
+                                {% endif %}
+                            {% else %}
+                                {% if not onlyImages %}<li>{% endif %}{{ __('No dates found.') }}{% if not onlyImages %}</li>{% endif %}
+                            {% endfor %}
+                        {% if not onlyImages %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            {{ form_row(finderForm.sort) }}
+            {{ form_row(finderForm.sortdir) }}
+            {{ form_row(finderForm.num) }}
+            <div id="searchTermRow">
+                {{ form_row(finderForm.q) }}
+            </div>
+            <div>
+                {{ pager({display: 'page', rowcount: pager.numitems, limit: pager.itemsperpage, posvar: 'pos', maxpages: 10, route: 'rkalmanacmodule_external_finder'}) }}
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    {{ form_widget(finderForm.update) }}
+                    {{ form_widget(finderForm.cancel) }}
+                </div>
+            </div>
+        </fieldset>
+        {{ form_end(finderForm) }}
+    </div>
+
+    {#
+    <div class="rkalmanacmodule-finderform">
+        <fieldset>
+            {{ render(controller('RKAlmanacModule:Date:edit')) }}
+        </fieldset>
+    </div>
+    #}
+{% endblock %}

@@ -1,0 +1,12 @@
+services:
+    # Entity factory
+    rk_almanac_module.entity_factory:
+        class: RK\AlmanacModule\Entity\Factory\EntityFactory
+        arguments:
+            - "@doctrine.orm.default_entity_manager"
+            - "@rk_almanac_module.entity_initialiser"
+            - "@rk_almanac_module.collection_filter_helper"
+    
+    # Entity initialiser
+    rk_almanac_module.entity_initialiser:
+        class: RK\AlmanacModule\Entity\Factory\EntityInitialiser

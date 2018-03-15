@@ -1,0 +1,80 @@
+services:
+    # Form types
+    
+    rk_almanac_module.form.type.datequicknav:
+        class: RK\AlmanacModule\Form\Type\QuickNavigation\DateQuickNavType
+        arguments:
+            - "@translator.default"
+            - "@rk_almanac_module.listentries_helper"
+            - "@rk_almanac_module.feature_activation_helper"
+        tags:
+            - { name: form.type }
+    
+    rk_almanac_module.form.handler.common:
+        abstract: true
+        arguments:
+            - "@kernel"
+            - "@translator.default"
+            - "@form.factory"
+            - "@request_stack"
+            - "@router"
+            - "@logger"
+            - "@zikula_permissions_module.api.permission"
+            - "@zikula_extensions_module.api.variable"
+            - "@zikula_users_module.current_user"
+            - "@zikula_groups_module.group_application_repository"
+            - "@rk_almanac_module.entity_factory"
+            - "@rk_almanac_module.controller_helper"
+            - "@rk_almanac_module.model_helper"
+            - "@rk_almanac_module.workflow_helper"
+            - "@rk_almanac_module.hook_helper"
+            - "@rk_almanac_module.feature_activation_helper"
+        calls:
+            - [setLockingApi, ["@?zikula_pagelock_module.api.locking"]]
+    
+    
+    rk_almanac_module.form.handler.date:
+        class: RK\AlmanacModule\Form\Handler\Date\EditHandler
+        parent: rk_almanac_module.form.handler.common
+    
+    rk_almanac_module.form.type.date:
+        class: RK\AlmanacModule\Form\Type\DateType
+        arguments:
+            - "@translator.default"
+            - "@rk_almanac_module.entity_factory"
+            - "@rk_almanac_module.listentries_helper"
+            - "@rk_almanac_module.feature_activation_helper"
+        tags:
+            - { name: form.type }
+    
+    rk_almanac_module.form.type.block.itemlist:
+        class: RK\AlmanacModule\Block\Form\Type\ItemListBlockType
+        arguments:
+            - "@translator.default"
+        tags:
+            - { name: form.type }
+    
+    rk_almanac_module.form.type.block.item:
+        class: RK\AlmanacModule\Block\Form\Type\ItemBlockType
+        arguments:
+            - "@translator.default"
+            - "@rk_almanac_module.entity_factory"
+            - "@rk_almanac_module.entity_display_helper"
+        tags:
+            - { name: form.type }
+    
+    rk_almanac_module.form.type.datefinder:
+        class: RK\AlmanacModule\Form\Type\Finder\DateFinderType
+        arguments:
+            - "@translator.default"
+            - "@rk_almanac_module.feature_activation_helper"
+        tags:
+            - { name: form.type }
+    
+    rk_almanac_module.form.type.config:
+        class: RK\AlmanacModule\Form\Type\ConfigType
+        arguments:
+            - "@translator.default"
+            - "@rk_almanac_module.listentries_helper"
+        tags:
+            - { name: form.type }

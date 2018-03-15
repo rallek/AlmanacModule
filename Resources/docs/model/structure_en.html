@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="a collection of dates">
+    <meta name="author" content="Ralf Koester">
+    <title>Almanac &ndash; Technical structure</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="icon" href="../../public/images/admin.png">
+    <style>
+        body {
+            padding-bottom: 80px;
+        }
+        h2 {
+            margin-top: 80px;
+        }
+        h3 {
+            margin-top: 50px;
+        }
+        table {
+            width: 100%;
+        }
+        th, td {
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+      <div class="container">
+          <h1>
+              <img src="../../public/images/admin.png" width="48" height="48" alt="Icon" class="img-thumbnail pull-right" />
+              Almanac &ndash; Technical structure
+          </h1>
+          <p>a collection of dates</p>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cBasicField" />
+            <col id="cBasicValue" />
+        </colgroup>
+        <thead>
+            <tr class="sr-only">
+                <th id="hBasicField" scope="col">Field</th>
+                <th id="hBasicValue" scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hVendor" scope="row" headers="hBasicField">Vendor</th>
+                <td headers="hBasicValue hVendor">RK</td>
+            </tr>
+            <tr>
+                <th id="hAuthor" scope="row" headers="hBasicField">Author</th>
+                <td headers="hBasicValue hAuthor">Ralf Koester</td>
+            </tr>
+            <tr>
+                <th id="hEmail" scope="row" headers="hBasicField">Email</th>
+                <td headers="hBasicValue hEmail"><a href="mailto:ralf@familie-koester.de"><i class="fa fa-envelope"></i> ralf@familie-koester.de</a></td>
+            </tr>
+            <tr>
+                <th id="hUrl" scope="row" headers="hBasicField">URL</th>
+                <td headers="hBasicValue hUrl"><a href="http://k62.de" title="Project page" target="_blank"><i class="fa fa-external-link-square"></i> http://k62.de</a></td>
+            </tr>
+            <tr>
+                <th id="hVersion" scope="row" headers="hBasicField">Version</th>
+                <td headers="hBasicValue hVersion">0.1.0</td>
+            </tr>
+            <tr>
+                <th id="hLicense" scope="row" headers="hBasicField">License</th>
+                <td headers="hBasicValue hLicense">http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License</td>
+            </tr>
+            <tr>
+                <th id="hPlatform" scope="row" headers="hBasicField">Platform</th>
+                <td headers="hBasicValue hPlatform"><a href="https://zikula.de/en/" title="Zikula website" target="_blank">Zikula</a> 1.5.5</td>
+            </tr>
+            <tr>
+                <th id="hGenerated" scope="row" headers="hBasicField">Generated</th>
+                <td headers="hBasicValue hGenerated">by <a href="https://modulestudio.de/en/" title="ModuleStudio website" target="_blank">ModuleStudio</a> 1.3.1</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h2><i class="fa fa-sitemap"></i> Application model</h2>
+<p><img src="Almanac_Entities%20Diagram.jpg" alt="Almanac Model" class="img-thumbnail img-responsive" /></p>
+<h2><i class="fa fa-database"></i> Data tables</h2>
+<h3><i class="fa fa-vcard-o"></i> Date / Dates</h3>
+<h4><i class="fa fa-cog"></i> Basic settings</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cDateSettingsName" />
+            <col id="cDateSettingsValue" />
+            <col id="cDateSettingsDescription" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hDateSettingsName" scope="col">Name</th>
+                <th id="hDateSettingsValue" scope="col">Value</th>
+                <th id="hDateSettingsDescription" scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hDateSettingsLeading" scope="row" headers="hDateSettingsName">Leading</th>
+                <td headers="hDateSettingsLeading hDateSettingsValue" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hDateSettingsLeading hDateSettingsDescription">Whether this represents the primary entity of the application</td>
+            </tr>
+            <tr>
+                <th id="hDateSettingsDisplayPattern" scope="row" headers="hDateSettingsName">Display pattern</th>
+                <td headers="hDateSettingsDisplayPattern hDateSettingsValue">#dateTitle#</td>
+                <td headers="hDateSettingsDisplayPattern hDateSettingsDescription">Pattern for displaying instances of this entity</td>
+            </tr>
+            <tr>
+                <th id="hDateSettingsIdentifierStrategy" scope="row" headers="hDateSettingsName">ID strategy</th>
+                <td headers="hDateSettingsIdentifierStrategy hDateSettingsValue">AUTO &ndash; Choose automatically.</td>
+                <td headers="hDateSettingsIdentifierStrategy hDateSettingsDescription">Whether and which identifier generation strategy is applied</td>
+            </tr>
+            <tr>
+                <th id="hDateSettingsChangeTrackingPolicy" scope="row" headers="hDateSettingsName">Change tracking policy</th>
+                <td headers="hDateSettingsChangeTrackingPolicy hDateSettingsValue">DEFERRED_IMPLICIT &ndash; Changes are determined by comparing properties during commit.</td>
+                <td headers="hDateSettingsChangeTrackingPolicy hDateSettingsDescription">How change detection is being done</td>
+            </tr>
+            <tr>
+                <th id="hDateSettingsLockType" scope="row" headers="hDateSettingsName">Locking strategy</th>
+                <td headers="hDateSettingsLockType hDateSettingsValue">PAGELOCK &ndash; Uses the PageLock module.</td>
+                <td headers="hDateSettingsLockType hDateSettingsDescription">Whether and which locking strategy is applied</td>
+            </tr>
+            <tr>
+                <th id="hDateSettingsReadOnly" scope="row" headers="hDateSettingsName">Read only</th>
+                <td headers="hDateSettingsReadOnly hDateSettingsValue" class="text-center"><i class="fa fa-times"></i>
+                </td>
+                <td headers="hDateSettingsReadOnly hDateSettingsDescription">Whether this entity is read only or not. If yes, editing is not possible.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h4><i class="fa fa-bars"></i> Fields</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cEntityDateFieldName" />
+            <col id="cEntityDateFieldType" />
+            <col id="cEntityDateFieldMandatory" />
+            <col id="cEntityDateFieldDefault" />
+            <col id="cEntityDateFieldDisplayType" />
+            <col id="cEntityDateFieldConstraints" />
+            <col id="cEntityDateFieldRemarks" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hEntityDateFieldName" scope="col">Name</th>
+                <th id="hEntityDateFieldType" scope="col">Type</th>
+                <th id="hEntityDateFieldMandatory" scope="col">Mandatory</th>
+                <th id="hEntityDateFieldDefault" scope="col">Default value</th>
+                <th id="hEntityDateFieldDisplayType" scope="col">Display</th>
+                <th id="hEntityDateFieldConstraints" scope="col">Constraints</th>
+                <th id="hEntityDateFieldRemarks" scope="col">Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hEntityDateFieldId" scope="row" headers="hEntityDateFieldName">Id</th>
+                <td headers="hEntityDateFieldId hEntityDateFieldType">Integer</td>
+                <td headers="hEntityDateFieldId hEntityDateFieldMandatory">true</td>
+                <td headers="hEntityDateFieldId hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldId hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldId hEntityDateFieldConstraints">
+                    <ul>
+                        <li>Has a length of 9.</li>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldId hEntityDateFieldRemarks">
+                    <ul>
+                        <li>This field is unique and allows no null values.</li>
+                        <li>Acts as primary key.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldWorkflowState" scope="row" headers="hEntityDateFieldName">Workflow state</th>
+                <td headers="hEntityDateFieldWorkflowState hEntityDateFieldType">List</td>
+                <td headers="hEntityDateFieldWorkflowState hEntityDateFieldMandatory">true</td>
+                <td headers="hEntityDateFieldWorkflowState hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldWorkflowState hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldWorkflowState hEntityDateFieldConstraints">
+                    <ul>
+                        <li>Has a length of 20 chars.</li>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldWorkflowState hEntityDateFieldRemarks">
+                    <ul>
+                        <li>the current workflow state </li>
+                        <li>This field is not unique and allows no null values.</li>
+                        <li>The list is represented by a single-valued dropdown list.</li>
+                        <li>Available entries: <ul><li>Initial (initial)</li><li>Deferred (deferred)</li><li>Waiting (waiting)</li><li>Approved (approved)</li><li>Suspended (suspended)</li><li>Archived (archived)</li><li>Trashed (trashed)</li><li>Deleted (deleted)</li></ul></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldDateTitle" scope="row" headers="hEntityDateFieldName">Date title</th>
+                <td headers="hEntityDateFieldDateTitle hEntityDateFieldType">String</td>
+                <td headers="hEntityDateFieldDateTitle hEntityDateFieldMandatory">true</td>
+                <td headers="hEntityDateFieldDateTitle hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldDateTitle hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldDateTitle hEntityDateFieldConstraints">
+                    <ul>
+                        <li>Has a length of 255 chars.</li>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldDateTitle hEntityDateFieldRemarks">
+                    <ul>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldDateDescription" scope="row" headers="hEntityDateFieldName">Date description</th>
+                <td headers="hEntityDateFieldDateDescription hEntityDateFieldType">Text</td>
+                <td headers="hEntityDateFieldDateDescription hEntityDateFieldMandatory">false</td>
+                <td headers="hEntityDateFieldDateDescription hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldDateDescription hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldDateDescription hEntityDateFieldConstraints">
+                    <ul>
+                        <li>Has a length of 20000 chars.</li>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldDateDescription hEntityDateFieldRemarks">
+                    <ul>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldAllDay" scope="row" headers="hEntityDateFieldName">All day</th>
+                <td headers="hEntityDateFieldAllDay hEntityDateFieldType">Boolean</td>
+                <td headers="hEntityDateFieldAllDay hEntityDateFieldMandatory">false</td>
+                <td headers="hEntityDateFieldAllDay hEntityDateFieldDefault">true</td>
+                <td headers="hEntityDateFieldAllDay hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldAllDay hEntityDateFieldConstraints">
+                    <ul>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldAllDay hEntityDateFieldRemarks">
+                    <ul>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldAllDayDate" scope="row" headers="hEntityDateFieldName">All day date</th>
+                <td headers="hEntityDateFieldAllDayDate hEntityDateFieldType">Date</td>
+                <td headers="hEntityDateFieldAllDayDate hEntityDateFieldMandatory">false</td>
+                <td headers="hEntityDateFieldAllDayDate hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldAllDayDate hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldAllDayDate hEntityDateFieldConstraints">
+                    <ul>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldAllDayDate hEntityDateFieldRemarks">
+                    <ul>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldStartDate" scope="row" headers="hEntityDateFieldName">Start date</th>
+                <td headers="hEntityDateFieldStartDate hEntityDateFieldType">Date with time</td>
+                <td headers="hEntityDateFieldStartDate hEntityDateFieldMandatory">true</td>
+                <td headers="hEntityDateFieldStartDate hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldStartDate hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldStartDate hEntityDateFieldConstraints">
+                    <ul>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldStartDate hEntityDateFieldRemarks">
+                    <ul>
+                        <li>This field is not unique and allows no null values.</li>
+                        <li>Acts as start date.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldEndDate" scope="row" headers="hEntityDateFieldName">End date</th>
+                <td headers="hEntityDateFieldEndDate hEntityDateFieldType">Date with time</td>
+                <td headers="hEntityDateFieldEndDate hEntityDateFieldMandatory">true</td>
+                <td headers="hEntityDateFieldEndDate hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldEndDate hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldEndDate hEntityDateFieldConstraints">
+                    <ul>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldEndDate hEntityDateFieldRemarks">
+                    <ul>
+                        <li>This field is not unique and allows no null values.</li>
+                        <li>Acts as end date.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldDateImage" scope="row" headers="hEntityDateFieldName">Date image</th>
+                <td headers="hEntityDateFieldDateImage hEntityDateFieldType">Upload</td>
+                <td headers="hEntityDateFieldDateImage hEntityDateFieldMandatory">false</td>
+                <td headers="hEntityDateFieldDateImage hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldDateImage hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldDateImage hEntityDateFieldConstraints">
+                    <ul>
+                        <li>Has a length of 255 chars.</li>
+                        <li>Allowed file extensions are "gif, jpeg, jpg, png".</li>
+                        <li>Allowed mime types are "image/*".</li>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldDateImage hEntityDateFieldRemarks">
+                    <ul>
+                        <li>This field is not unique and allows null values.</li>
+                        <li>Uploaded files are stored in the "dateimage" subfolder and keep their original file name which is extended by a counter if needed..</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hEntityDateFieldDateUrl" scope="row" headers="hEntityDateFieldName">Date url</th>
+                <td headers="hEntityDateFieldDateUrl hEntityDateFieldType">URL</td>
+                <td headers="hEntityDateFieldDateUrl hEntityDateFieldMandatory">false</td>
+                <td headers="hEntityDateFieldDateUrl hEntityDateFieldDefault"></td>
+                <td headers="hEntityDateFieldDateUrl hEntityDateFieldDisplayType">ALL</td>
+                <td headers="hEntityDateFieldDateUrl hEntityDateFieldConstraints">
+                    <ul>
+                        <li>Has a length of 255 chars.</li>
+                    </ul>
+                </td>
+                <td headers="hEntityDateFieldDateUrl hEntityDateFieldRemarks">
+                    <ul>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h4><i class="fa fa-key"></i> Indexes</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cDateIndexName" />
+            <col id="cDateIndexType" />
+            <col id="cDateIndexSize" />
+            <col id="cDateIndexDescription" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hDateIndexName" scope="col">Name</th>
+                <th id="hDateIndexType" scope="col">Type</th>
+                <th id="hDateIndexSize" scope="col">Size</th>
+                <th id="hDateIndexDescription" scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hDateIndexWorkflowStateIndex" scope="row" headers="hDateIndexName">Workflow state index</th>
+                <td headers="hDateIndexWorkflowStateIndex hDateIndexType">NORMAL &ndash; normal index</td>
+                <td headers="hDateIndexWorkflowStateIndex hDateIndexSize">1 field</td>
+                <td headers="hDateIndexWorkflowStateIndex hDateIndexDescription"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h4><i class="fa fa-paw"></i> Actions</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cDateActionName" />
+            <col id="cDateActionDescription" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hDateActionName" scope="col">Name</th>
+                <th id="hDateActionDescription" scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hDateActionIndex" scope="row" headers="hDateActionName">Index</th>
+                <td headers="hDateActionIndex hDateActionDescription">Index action in Date controller</td>
+            </tr>
+            <tr>
+                <th id="hDateActionView" scope="row" headers="hDateActionName">View</th>
+                <td headers="hDateActionView hDateActionDescription">View action in Date controller</td>
+            </tr>
+            <tr>
+                <th id="hDateActionDisplay" scope="row" headers="hDateActionName">Display</th>
+                <td headers="hDateActionDisplay hDateActionDescription">Display action in Date controller</td>
+            </tr>
+            <tr>
+                <th id="hDateActionEdit" scope="row" headers="hDateActionName">Edit</th>
+                <td headers="hDateActionEdit hDateActionDescription">Edit action in Date controller</td>
+            </tr>
+            <tr>
+                <th id="hDateActionDelete" scope="row" headers="hDateActionName">Delete</th>
+                <td headers="hDateActionDelete hDateActionDescription">Delete action in Date controller</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h4><i class="fa fa-map-signs"></i> Workflow</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cDateWorkflowName" />
+            <col id="cDateWorkflowDescription" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hDateWorkflowName" scope="col">Name</th>
+                <th id="hDateWorkflowDescription" scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hDateWorkflowType" scope="row" headers="hDateWorkflowName">Workflow type</th>
+                <td headers="hDateWorkflowType hDateWorkflowDescription">STANDARD &ndash; single approval.</td>
+            </tr>
+            <tr>
+                <th id="hDateWorkflowStates" scope="row" headers="hDateWorkflowName">States</th>
+                <td headers="hDateWorkflowStates hDateWorkflowDescription">
+                    <ul>
+                        <li><strong>Initial:</strong> content is just created and not persisted yet.</li>
+                        <li><strong>Deferred:</strong> content has not been submitted yet or has been waiting, but was rejected. Allows users to manage their contributions, otherwise rejected content would be deleted.</li>
+                        <li><strong>Waiting:</strong> content has been submitted and waits for approval.</li>
+                        <li><strong>Approved:</strong> content has been approved and is available online.</li>
+                        <li><strong>Suspended:</strong> content has been approved, but is temporarily offline.</li>
+                        <li><strong>Archived:</strong> content has reached the end and became archived.</li>
+                        <li><strong>Deleted:</strong> content has been deleted from the database.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hDateWorkflowOwnerPermission" scope="row" headers="hDateWorkflowName">Users are able to manage and edit their own data</th>
+                <td headers="hDateWorkflowOwnerPermission hDateWorkflowDescription" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <th id="hDateWorkflowAccountDeletionCreator" scope="row" headers="hDateWorkflowName">If creator is deleted</th>
+                <td headers="hDateWorkflowAccountDeletionCreator hDateWorkflowDescription">the "admin" user will be assigned.</td>
+            </tr>
+            <tr>
+                <th id="hDateWorkflowAccountDeletionLastEditor" scope="row" headers="hDateWorkflowName">If last editor is deleted</th>
+                <td headers="hDateWorkflowAccountDeletionLastEditor hDateWorkflowDescription">the "admin" user will be assigned.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h4><i class="fa fa-magic"></i> Behaviour</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cDateBehaviourName1" />
+            <col id="cDateBehaviourValue1" />
+            <col id="cDateBehaviourName2" />
+            <col id="cDateBehaviourValue2" />
+        </colgroup>
+        <thead>
+            <tr class="sr-only">
+                <th id="hDateBehaviourName1" scope="col">Name</th>
+                <th id="hDateBehaviourValue1" scope="col">Value</th>
+                <th id="hDateBehaviourName2" scope="col">Name</th>
+                <th id="hDateBehaviourValue2" scope="col">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hDateBehaviourAttributable" scope="row" headers="hDateBehaviourName1">Attributable</th>
+                <td headers="hDateBehaviourAttributable hDateBehaviourValue1" class="text-center"><i class="fa fa-times"></i>
+                </td>
+                <th id="hDateBehaviourLoggable" scope="row" headers="hDateBehaviourName2">Versionable</th>
+                <td headers="hDateBehaviourLoggable hDateBehaviourValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+            <tr>
+                <th id="hDateBehaviourCategorisable" scope="row" headers="hDateBehaviourName1">Categorisable</th>
+                <td headers="hDateBehaviourCategorisable hDateBehaviourValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <th id="hDateBehaviourCategorisableMulti" scope="row" headers="hDateBehaviourName2">Categories multi selection</th>
+                <td headers="hDateBehaviourCategorisableMulti hDateBehaviourValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+            <tr>
+                <th id="hDateBehaviourSluggable" scope="row" headers="hDateBehaviourName1">Slugs</th>
+                <td headers="hDateBehaviourSluggable hDateBehaviourValue1" class="text-center"><i class="fa fa-times"></i>
+                </td>
+                <td headers="hDateBehaviourSluggable hDateBehaviourValue2" class="text-center"></td>
+                <td headers="hDateBehaviourSluggable hDateBehaviourValue2" class="text-center"></td>
+            </tr>
+            <tr>
+                <th id="hDateBehaviourTree" scope="row" headers="hDateBehaviourName1">Tree</th>
+                <td headers="hDateBehaviourAttributable hDateBehaviourValue1" class="text-center">NONE</td>
+                <th id="hDateBehaviourGeographical" scope="row" headers="hDateBehaviourName2">Geographical</th>
+                <td headers="hDateBehaviourGeographical hDateBehaviourValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+            <tr>
+                <th id="hDateBehaviourStandardFields" scope="row" headers="hDateBehaviourName1">Standard fields</th>
+                <td headers="hDateBehaviourStandardFields hDateBehaviourValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <th id="hDateBehaviourHookSubscribers" scope="row" headers="hDateBehaviourName2">Hook subscribers</th>
+                <td headers="hDateBehaviourHookSubscribers hDateBehaviourValue2" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <th id="hDateBehaviourFormAwareHookProvider" scope="row" headers="hDateBehaviourName1">Form aware hooks provider</th>
+                <td headers="hDateBehaviourFormAwareHookProvider hDateBehaviourValue1" class="text-center">DISABLED &ndash; no hook provider available</td>
+                <th id="hDateBehaviourUiHooksProvider" scope="row" headers="hDateBehaviourName2">UI hooks provider</th>
+                <td headers="hDateBehaviourUiHooksProvider hDateBehaviourValue2" class="text-center">ENABLED &ndash; hook provider available</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h2><i class="fa fa-wrench"></i> Configuration variables</h2>
+<h3><i class="fa fa-server"></i> Moderation</h3>
+<p>Here you can assign moderation groups for enhanced workflow actions.</p>
+<p>Sort value: 1</p>
+<p>Composite: <i class="fa fa-times"></i>
+</p>
+<h4><i class="fa fa-bars"></i> Fields</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cVariablesModerationFieldName" />
+            <col id="cVariablesModerationFieldType" />
+            <col id="cVariablesModerationFieldMandatory" />
+            <col id="cVariablesModerationFieldDefault" />
+            <col id="cVariablesModerationFieldDisplayType" />
+            <col id="cVariablesModerationFieldConstraints" />
+            <col id="cVariablesModerationFieldRemarks" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hVariablesModerationFieldName" scope="col">Name</th>
+                <th id="hVariablesModerationFieldType" scope="col">Type</th>
+                <th id="hVariablesModerationFieldMandatory" scope="col">Mandatory</th>
+                <th id="hVariablesModerationFieldDefault" scope="col">Default value</th>
+                <th id="hVariablesModerationFieldDisplayType" scope="col">Display</th>
+                <th id="hVariablesModerationFieldConstraints" scope="col">Constraints</th>
+                <th id="hVariablesModerationFieldRemarks" scope="col">Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hVariablesModerationFieldModerationGroupForDates" scope="row" headers="hVariablesModerationFieldName">Moderation group for dates</th>
+                <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldType">Integer</td>
+                <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldMandatory">true</td>
+                <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldDefault">2</td>
+                <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldDisplayType">ALL</td>
+                <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldRemarks">
+                    <ul>
+                        <li>Used to determine moderator user accounts for sending email notifications. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h3><i class="fa fa-server"></i> List views</h3>
+<p>Here you can configure parameters for list views.</p>
+<p>Sort value: 2</p>
+<p>Composite: <i class="fa fa-times"></i>
+</p>
+<h4><i class="fa fa-bars"></i> Fields</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cVariablesListViewsFieldName" />
+            <col id="cVariablesListViewsFieldType" />
+            <col id="cVariablesListViewsFieldMandatory" />
+            <col id="cVariablesListViewsFieldDefault" />
+            <col id="cVariablesListViewsFieldDisplayType" />
+            <col id="cVariablesListViewsFieldConstraints" />
+            <col id="cVariablesListViewsFieldRemarks" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hVariablesListViewsFieldName" scope="col">Name</th>
+                <th id="hVariablesListViewsFieldType" scope="col">Type</th>
+                <th id="hVariablesListViewsFieldMandatory" scope="col">Mandatory</th>
+                <th id="hVariablesListViewsFieldDefault" scope="col">Default value</th>
+                <th id="hVariablesListViewsFieldDisplayType" scope="col">Display</th>
+                <th id="hVariablesListViewsFieldConstraints" scope="col">Constraints</th>
+                <th id="hVariablesListViewsFieldRemarks" scope="col">Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hVariablesListViewsFieldDateEntriesPerPage" scope="row" headers="hVariablesListViewsFieldName">Date entries per page</th>
+                <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldType">Integer</td>
+                <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldMandatory">true</td>
+                <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldDefault">10</td>
+                <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldDisplayType">ALL</td>
+                <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldRemarks">
+                    <ul>
+                        <li>The amount of dates shown per page </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesListViewsFieldLinkOwnDatesOnAccountPage" scope="row" headers="hVariablesListViewsFieldName">Link own dates on account page</th>
+                <td headers="hVariablesListViewsFieldLinkOwnDatesOnAccountPage hVariablesListViewsFieldType">Boolean</td>
+                <td headers="hVariablesListViewsFieldLinkOwnDatesOnAccountPage hVariablesListViewsFieldMandatory">false</td>
+                <td headers="hVariablesListViewsFieldLinkOwnDatesOnAccountPage hVariablesListViewsFieldDefault">true</td>
+                <td headers="hVariablesListViewsFieldLinkOwnDatesOnAccountPage hVariablesListViewsFieldDisplayType">ALL</td>
+                <td headers="hVariablesListViewsFieldLinkOwnDatesOnAccountPage hVariablesListViewsFieldConstraints">
+                    <ul>
+                    </ul>
+                </td>
+                <td headers="hVariablesListViewsFieldLinkOwnDatesOnAccountPage hVariablesListViewsFieldRemarks">
+                    <ul>
+                        <li>Whether to add a link to dates of the current user on his account page </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h3><i class="fa fa-server"></i> Images</h3>
+<p>Here you can define several options for image handling.</p>
+<p>Sort value: 3</p>
+<p>Composite: <i class="fa fa-times"></i>
+</p>
+<h4><i class="fa fa-bars"></i> Fields</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cVariablesImagesFieldName" />
+            <col id="cVariablesImagesFieldType" />
+            <col id="cVariablesImagesFieldMandatory" />
+            <col id="cVariablesImagesFieldDefault" />
+            <col id="cVariablesImagesFieldDisplayType" />
+            <col id="cVariablesImagesFieldConstraints" />
+            <col id="cVariablesImagesFieldRemarks" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hVariablesImagesFieldName" scope="col">Name</th>
+                <th id="hVariablesImagesFieldType" scope="col">Type</th>
+                <th id="hVariablesImagesFieldMandatory" scope="col">Mandatory</th>
+                <th id="hVariablesImagesFieldDefault" scope="col">Default value</th>
+                <th id="hVariablesImagesFieldDisplayType" scope="col">Display</th>
+                <th id="hVariablesImagesFieldConstraints" scope="col">Constraints</th>
+                <th id="hVariablesImagesFieldRemarks" scope="col">Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hVariablesImagesFieldEnableShrinkingForDateDateImage" scope="row" headers="hVariablesImagesFieldName">Enable shrinking for date date image</th>
+                <td headers="hVariablesImagesFieldEnableShrinkingForDateDateImage hVariablesImagesFieldType">Boolean</td>
+                <td headers="hVariablesImagesFieldEnableShrinkingForDateDateImage hVariablesImagesFieldMandatory">false</td>
+                <td headers="hVariablesImagesFieldEnableShrinkingForDateDateImage hVariablesImagesFieldDefault">false</td>
+                <td headers="hVariablesImagesFieldEnableShrinkingForDateDateImage hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldEnableShrinkingForDateDateImage hVariablesImagesFieldConstraints">
+                    <ul>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldEnableShrinkingForDateDateImage hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>Whether to enable shrinking huge images to maximum dimensions. Stores downscaled version of the original image. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldShrinkWidthDateDateImage" scope="row" headers="hVariablesImagesFieldName">Shrink width date date image</th>
+                <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldType">Integer</td>
+                <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldDefault">800</td>
+                <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>The maximum image width in pixels. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldShrinkHeightDateDateImage" scope="row" headers="hVariablesImagesFieldName">Shrink height date date image</th>
+                <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldType">Integer</td>
+                <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldDefault">600</td>
+                <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>The maximum image height in pixels. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldThumbnailModeDateDateImage" scope="row" headers="hVariablesImagesFieldName">Thumbnail mode date date image</th>
+                <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldType">List</td>
+                <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldDefault"></td>
+                <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 255 chars.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>Thumbnail mode (inset or outbound). </li>
+                        <li>This field is not unique and allows no null values.</li>
+                        <li>The list is represented by a single-valued dropdown list.</li>
+                        <li>Available entries: <ul><li>Inset (inset)</li><li>Outbound (outbound)</li></ul></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldThumbnailWidthDateDateImageView" scope="row" headers="hVariablesImagesFieldName">Thumbnail width date date image view</th>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldType">Integer</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldDefault">32</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>Thumbnail width on view pages in pixels. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldThumbnailHeightDateDateImageView" scope="row" headers="hVariablesImagesFieldName">Thumbnail height date date image view</th>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldType">Integer</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldDefault">24</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>Thumbnail height on view pages in pixels. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay" scope="row" headers="hVariablesImagesFieldName">Thumbnail width date date image display</th>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldType">Integer</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldDefault">240</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>Thumbnail width on display pages in pixels. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay" scope="row" headers="hVariablesImagesFieldName">Thumbnail height date date image display</th>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldType">Integer</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldDefault">180</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>Thumbnail height on display pages in pixels. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldThumbnailWidthDateDateImageEdit" scope="row" headers="hVariablesImagesFieldName">Thumbnail width date date image edit</th>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldType">Integer</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldDefault">240</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>Thumbnail width on edit pages in pixels. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th id="hVariablesImagesFieldThumbnailHeightDateDateImageEdit" scope="row" headers="hVariablesImagesFieldName">Thumbnail height date date image edit</th>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldType">Integer</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldMandatory">true</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldDefault">180</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldDisplayType">ALL</td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldConstraints">
+                    <ul>
+                        <li>Has a length of 11.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldRemarks">
+                    <ul>
+                        <li>Thumbnail height on edit pages in pixels. </li>
+                        <li>This field is not unique and allows no null values.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h3><i class="fa fa-server"></i> Integration</h3>
+<p>These options allow you to configure integration aspects.</p>
+<p>Sort value: 4</p>
+<p>Composite: <i class="fa fa-times"></i>
+</p>
+<h4><i class="fa fa-bars"></i> Fields</h4>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cVariablesIntegrationFieldName" />
+            <col id="cVariablesIntegrationFieldType" />
+            <col id="cVariablesIntegrationFieldMandatory" />
+            <col id="cVariablesIntegrationFieldDefault" />
+            <col id="cVariablesIntegrationFieldDisplayType" />
+            <col id="cVariablesIntegrationFieldConstraints" />
+            <col id="cVariablesIntegrationFieldRemarks" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hVariablesIntegrationFieldName" scope="col">Name</th>
+                <th id="hVariablesIntegrationFieldType" scope="col">Type</th>
+                <th id="hVariablesIntegrationFieldMandatory" scope="col">Mandatory</th>
+                <th id="hVariablesIntegrationFieldDefault" scope="col">Default value</th>
+                <th id="hVariablesIntegrationFieldDisplayType" scope="col">Display</th>
+                <th id="hVariablesIntegrationFieldConstraints" scope="col">Constraints</th>
+                <th id="hVariablesIntegrationFieldRemarks" scope="col">Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th id="hVariablesIntegrationFieldEnabledFinderTypes" scope="row" headers="hVariablesIntegrationFieldName">Enabled finder types</th>
+                <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldType">List</td>
+                <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldMandatory">false</td>
+                <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldDefault"></td>
+                <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldDisplayType">ALL</td>
+                <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldConstraints">
+                    <ul>
+                        <li>Has a length of 255 chars.</li>
+                    </ul>
+                </td>
+                <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldRemarks">
+                    <ul>
+                        <li>Which sections are supported in the Finder component (used by Scribite plug-ins). </li>
+                        <li>This field is not unique and allows no null values.</li>
+                        <li>The list is represented by a multi-valued dropdown list</li>
+                        <li>Available entries: <ul><li>Date (date)</li></ul></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<h2><i class="fa fa-puzzle-piece"></i> Integration settings</h2>
+<div class="table-responsive">
+    <table class="table-striped table-bordered table-hover table-condensed">
+        <colgroup>
+            <col id="cSettingName1" />
+            <col id="cSettingValue1" />
+            <col id="cSettingName2" />
+            <col id="cSettingValue2" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th id="hSettingName1" scope="col" style="width: 25%">Setting</th>
+                <th id="hSettingValue1" scope="col" class="text-center" style="width: 25%">Value</th>
+                <th id="hSettingName2" scope="col" style="width: 25%">Setting</th>
+                <th id="hSettingValue2" scope="col" class="text-center" style="width: 25%">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td headers="hSettingName1">System module</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-times"></i>
+                </td>
+                <td headers="hSettingName2">Amount of example rows</td>
+                <td headers="hSettingValue2" class="text-center">0</td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">Account panel</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hSettingName2">Search integration</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">List view block</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hSettingName2">Detail view block</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">List view content type</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hSettingName2">Detail view content type</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">Mailz support</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-times"></i>
+                </td>
+                <td headers="hSettingName2">Newsletter plugin</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">Moderation block</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hSettingName2">Moderation panel</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">Pending content support</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hSettingName2">MultiHook needles</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">External calls and Finder</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hSettingName2">WYSIWYG plugins</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">Authentication method</td>
+                <td headers="hSettingValue1" class="text-center">NONE &ndash; no authentication method available.</td>
+                <td headers="hSettingName2">Tagging support</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">Filter hooks provider</td>
+                <td headers="hSettingValue1" class="text-center">DISABLED &ndash; no hook provider available</td>
+                <td headers="hSettingName2">Separate admin templates</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">RSS templates</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hSettingName2">Atom templates</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">CSV templates</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-times"></i>
+                </td>
+                <td headers="hSettingName2">XML templates</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">JSON templates</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
+                </td>
+                <td headers="hSettingName2">KML templates</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+            <tr>
+                <td headers="hSettingName1">ICS templates</td>
+                <td headers="hSettingValue1" class="text-center"><i class="fa fa-times"></i>
+                </td>
+                <td headers="hSettingName2">PDF support</td>
+                <td headers="hSettingValue2" class="text-center"><i class="fa fa-times"></i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>

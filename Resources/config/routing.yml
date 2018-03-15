@@ -1,0 +1,5 @@
+rkalmanacmodule:
+    # define routing support for these controllers
+    resource: "@RKAlmanacModule/Controller"
+    # enable support for defining routes by annotations
+    type: annotation

@@ -1,0 +1,61 @@
+{# Purpose of this template: Display one certain date within an external context #}
+{{ pageAddAsset('javascript', asset('magnific-popup/jquery.magnific-popup.min.js'), 90) }}
+{{ pageAddAsset('stylesheet', asset('magnific-popup/magnific-popup.css'), 90) }}
+{{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.js')) }}
+<div id="date{{ date.getKey() }}" class="rkalmanacmodule-external-date">
+{% if displayMode == 'link' %}
+    <p class="rkalmanacmodule-external-link">
+    <a href="{{ path('rkalmanacmodule_date_display', {'id': date.getId()}) }}" title="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}">
+    {{ date|rkalmanacmodule_formattedTitle|notifyFilters('almanac.filter_hooks.dates.filter')|safeHtml }}
+    </a>
+    </p>
+{% endif %}
+{% if hasPermission('RKAlmanacModule::', '::', 'ACCESS_EDIT') %}
+    {# for normal users without edit permission show only the actual file per default #}
+    {% if displayMode == 'embed' %}
+        <p class="rkalmanacmodule-external-title">
+            <strong>{{ date|rkalmanacmodule_formattedTitle|notifyFilters('almanac.filter_hooks.dates.filter')|safeHtml }}</strong>
+        </p>
+    {% endif %}
+{% endif %}
+
+{% if displayMode == 'link' %}
+{% elseif displayMode == 'embed' %}
+    <div class="rkalmanacmodule-external-snippet">
+        {% if date.dateImage is not empty and date.dateImageMeta|default %}
+                    <a href="{{ date.dateImageUrl }}" title="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}"{% if date.dateImageMeta.isImage %} class="image-link"{% endif %}>
+        {% if date.dateImageMeta.isImage %}
+            {% set thumbOptions = attribute(thumbRuntimeOptions, 'dateDateImage') %}
+            <img src="{{ date.dateImage.getPathname()|imagine_filter('zkroot', thumbOptions) }}" alt="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}" width="{{ thumbOptions.thumbnail.size[0] }}" height="{{ thumbOptions.thumbnail.size[1] }}" class="img-thumbnail" />
+        {% else %}
+            {{ __('Download') }} ({{ date.dateImageMeta.size|rkalmanacmodule_fileSize(date.dateImage.getPathname(), false, false) }})
+        {% endif %}
+        </a>
+        {% else %}&nbsp;{% endif %}
+    </div>
+
+    {# you can distinguish the context like this: #}
+    {# % if source == 'block' %}
+        ... detail block
+    {% elseif source == 'contentType' %}
+        ... detail content type
+    {% elseif source == 'scribite' %}
+        ...
+    {% endif % #}
+
+    {# you can enable more details about the item: #}
+    {#
+        <p class="rkalmanacmodule-external-description">
+            {% if date.dateDescription is not empty %}{{ date.dateDescription }}<br />{% endif %}
+            {% if featureActivationHelper.isEnabled(constant('RK\\AlmanacModule\\Helper\\FeatureActivationHelper::CATEGORIES'), 'date') %}
+                <dl class="category-list">
+                {% for propName, catMapping in date.categories %}
+                    <dt>{{ propName }}</dt>
+                    <dd>{{ catMapping.category.display_name[app.request.locale]|default(catMapping.category.name) }}</dd>
+                {% endfor %}
+                </dl>
+            {% endif %}
+        </p>
+    #}
+{% endif %}
+</div>

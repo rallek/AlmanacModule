@@ -1,0 +1,7 @@
+{# purpose of this template: dates view json view #}
+[
+{% for date in items %}
+    {% if not loop.first %},{% endif %}
+    {{ date.toArray()|json_encode() }}
+{% endfor %}
+]

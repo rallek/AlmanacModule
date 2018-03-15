@@ -1,0 +1,212 @@
+{# purpose of this template: dates admin list view #}
+{% extends 'RKAlmanacModule::adminBase.html.twig' %}
+{% block title own ? __('My dates') : __('Dates list') %}
+{% block admin_page_icon 'list-alt' %}
+{% block content %}
+<div class="rkalmanacmodule-date rkalmanacmodule-view">
+
+    {{ block('page_nav_links') }}
+
+    {{ include('@RKAlmanacModule/Date/Admin/viewQuickNav.html.twig') }}{# see template file for available options #}
+
+    {% if routeArea == 'admin' %}
+    <form action="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'handleselectedentries') }}" method="post" id="datesViewForm" class="form-horizontal" role="form">
+        <div>
+    {% endif %}
+        <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <colgroup>
+                {% if routeArea == 'admin' %}
+                    <col id="cSelect" />
+                {% endif %}
+                <col id="cItemActionsStart" />
+                {% if routeArea == 'admin' %}
+                <col id="cWorkflowState" />
+                {% endif %}
+                <col id="cDateTitle" />
+                <col id="cDateDescription" />
+                <col id="cAllDay" />
+                <col id="cAllDayDate" />
+                <col id="cStartDate" />
+                <col id="cEndDate" />
+                <col id="cDateImage" />
+                <col id="cDateUrl" />
+            </colgroup>
+            <thead>
+            <tr>
+                {% if routeArea == 'admin' %}
+                    <th id="hSelect" scope="col" class="text-center z-w02">
+                        <input type="checkbox" class="rkalmanac-mass-toggle" />
+                    </th>
+                {% endif %}
+                <th id="hItemActionsStart" scope="col" class="z-order-unsorted z-w02">{{ __('Actions') }}</th>
+                {% if routeArea == 'admin' %}
+                <th id="hWorkflowState" scope="col" class="text-left">
+                    <a href="{{ sort.workflowState.url }}" title="{{ __f('Sort by %s', {'%s': 'state'}) }}" class="{{ sort.workflowState.class }}">{{ __('State') }}</a>
+                </th>
+                {% endif %}
+                <th id="hDateTitle" scope="col" class="text-left">
+                    <a href="{{ sort.dateTitle.url }}" title="{{ __f('Sort by %s', {'%s': 'date title'}) }}" class="{{ sort.dateTitle.class }}">{{ __('Date title') }}</a>
+                </th>
+                <th id="hDateDescription" scope="col" class="text-left">
+                    <a href="{{ sort.dateDescription.url }}" title="{{ __f('Sort by %s', {'%s': 'date description'}) }}" class="{{ sort.dateDescription.class }}">{{ __('Date description') }}</a>
+                </th>
+                <th id="hAllDay" scope="col" class="text-center">
+                    <a href="{{ sort.allDay.url }}" title="{{ __f('Sort by %s', {'%s': 'all day'}) }}" class="{{ sort.allDay.class }}">{{ __('All day') }}</a>
+                </th>
+                <th id="hAllDayDate" scope="col" class="text-left">
+                    <a href="{{ sort.allDayDate.url }}" title="{{ __f('Sort by %s', {'%s': 'all day date'}) }}" class="{{ sort.allDayDate.class }}">{{ __('All day date') }}</a>
+                </th>
+                <th id="hStartDate" scope="col" class="text-left">
+                    <a href="{{ sort.startDate.url }}" title="{{ __f('Sort by %s', {'%s': 'start date'}) }}" class="{{ sort.startDate.class }}">{{ __('Start date') }}</a>
+                </th>
+                <th id="hEndDate" scope="col" class="text-left">
+                    <a href="{{ sort.endDate.url }}" title="{{ __f('Sort by %s', {'%s': 'end date'}) }}" class="{{ sort.endDate.class }}">{{ __('End date') }}</a>
+                </th>
+                <th id="hDateImage" scope="col" class="text-left">
+                    <a href="{{ sort.dateImage.url }}" title="{{ __f('Sort by %s', {'%s': 'date image'}) }}" class="{{ sort.dateImage.class }}">{{ __('Date image') }}</a>
+                </th>
+                <th id="hDateUrl" scope="col" class="text-center">
+                    <a href="{{ sort.dateUrl.url }}" title="{{ __f('Sort by %s', {'%s': 'date url'}) }}" class="{{ sort.dateUrl.class }}">{{ __('Date url') }}</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+        
+        {% for date in items %}
+            <tr>
+                {% if routeArea == 'admin' %}
+                    <td headers="hSelect" class="text-center z-w02">
+                        <input type="checkbox" name="items[]" value="{{ date.getKey() }}" class="rkalmanac-toggle-checkbox" />
+                    </td>
+                {% endif %}
+                <td id="itemActions{{ date.getKey() }}Start" headers="hItemActionsStart" class="actions nowrap z-w02">
+                    {% set itemActions = knp_menu_get('RKAlmanacModule:ItemActionsMenu:menu', [], {entity: date, area: routeArea, context: 'view'}) %}
+                    <div class="dropdown">
+                        <a id="itemActions{{ date.getKey() }}DropDownToggleStart" role="button" data-toggle="dropdown" data-target="#" href="javascript:void(0);" class="hidden dropdown-toggle"><i class="fa fa-tasks"></i> <span class="caret"></span></a>
+                        {{ knp_menu_render(itemActions, {template: 'ZikulaMenuModule:Override:bootstrap_fontawesome.html.twig'}) }}
+                    </div>
+                </td>
+                {% if routeArea == 'admin' %}<td headers="hWorkflowState" class="text-left nowrap">
+                    {{ date.workflowState|rkalmanacmodule_objectState }}
+                </td>
+                {% endif %}<td headers="hDateTitle" class="text-left">
+                    {{ date.dateTitle }}
+                </td>
+                <td headers="hDateDescription" class="text-left">
+                    {{ date.dateDescription|striptags|truncate(50) }}
+                </td>
+                <td headers="hAllDay" class="text-center">
+                    {% if date.allDay %}
+                        <i class="fa fa-check" title="{{ __('Yes') }}"></i>
+                    {% else %}
+                        <i class="fa fa-times" title="{{ __('No') }}"></i>
+                    {% endif %}
+                </td>
+                <td headers="hAllDayDate" class="text-left">
+                    {{ date.allDayDate|localizeddate('medium', 'none') }}
+                </td>
+                <td headers="hStartDate" class="text-left">
+                    {{ date.startDate|localizeddate('medium', 'short') }}
+                </td>
+                <td headers="hEndDate" class="text-left">
+                    {{ date.endDate|localizeddate('medium', 'short') }}
+                </td>
+                <td headers="hDateImage" class="text-left">
+                    {% if date.dateImage is not empty and date.dateImageMeta|default %}
+                                <a href="{{ date.dateImageUrl }}" title="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}"{% if date.dateImageMeta.isImage %} class="image-link"{% endif %}>
+                    {% if date.dateImageMeta.isImage %}
+                        {% set thumbOptions = attribute(thumbRuntimeOptions, 'dateDateImage') %}
+                        <img src="{{ date.dateImage.getPathname()|imagine_filter('zkroot', thumbOptions) }}" alt="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}" width="{{ thumbOptions.thumbnail.size[0] }}" height="{{ thumbOptions.thumbnail.size[1] }}" class="img-thumbnail" />
+                    {% else %}
+                        {{ __('Download') }} ({{ date.dateImageMeta.size|rkalmanacmodule_fileSize(date.dateImage.getPathname(), false, false) }})
+                    {% endif %}
+                    </a>
+                    {% else %}&nbsp;{% endif %}
+                </td>
+                <td headers="hDateUrl" class="text-center">
+                    {% if date.dateUrl is not empty %}
+                    <a href="{{ date.dateUrl }}" title="{{ __('Visit this page') }}"><i class="fa fa-external-link-square"></i></a>
+                    {% else %}&nbsp;{% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr class="z-{{ routeArea == 'admin' ? 'admin' : 'data' }}tableempty">
+                <td class="text-left" colspan="{% if routeArea == 'admin' %}11{% else %}10{% endif %}">
+            {{ __('No dates found.') }}
+              </td>
+            </tr>
+        {% endfor %}
+        
+            </tbody>
+        </table>
+        </div>
+        
+        {% if all != 1 and pager|default %}
+            {{ pager({rowcount: pager.amountOfItems, limit: pager.itemsPerPage, display: 'page', route: 'rkalmanacmodule_date_' ~ routeArea ~ 'view'}) }}
+        {% endif %}
+    {% if routeArea == 'admin' %}
+            <fieldset>
+                <label for="rKAlmanacModuleAction" class="col-sm-3 control-label">{{ __('With selected dates') }}</label>
+                <div class="col-sm-6">
+                    <select id="rKAlmanacModuleAction" name="action" class="form-control input-sm">
+                        <option value="">{{ __('Choose action') }}</option>
+                        <option value="approve" title="{{ __('Update content and approve for immediate publishing.') }}">{{ __('Approve') }}</option>
+                        <option value="unpublish" title="{{ __('Hide content temporarily.') }}">{{ __('Unpublish') }}</option>
+                        <option value="publish" title="{{ __('Make content available again.') }}">{{ __('Publish') }}</option>
+                        <option value="archive" title="{{ __('Move content into the archive.') }}">{{ __('Archive') }}</option>
+                        <option value="unarchive" title="{{ __('Move content out of the archive.') }}">{{ __('Unarchive') }}</option>
+                        <option value="delete" title="{{ __('Delete content permanently.') }}">{{ __('Delete') }}</option>
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <input type="submit" value="{{ __('Submit') }}" class="btn btn-default btn-sm" />
+                </div>
+            </fieldset>
+        </div>
+    </form>
+    {% endif %}
+
+    {{ block('display_hooks') }}
+</div>
+{% endblock %}
+{% block page_nav_links %}
+    <p>
+        {% if canBeCreated %}
+            {% if hasPermission('RKAlmanacModule:Date:', '::', 'ACCESS_COMMENT') %}
+                {% set createTitle = __('Create date') %}
+                <a href="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'edit') }}" title="{{ createTitle|e('html_attr') }}"><i class="fa fa-plus"></i> {{ createTitle }}</a>
+            {% endif %}
+        {% endif %}
+        {% if all == 1 %}
+            {% set linkTitle = __('Back to paginated view') %}
+            {% set routeArgs = own ? {own: 1} : {} %}
+            <a href="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'view', routeArgs) }}" title="{{ linkTitle|e('html_attr') }}"><i class="fa fa-table"></i> {{ linkTitle }}</a>
+        {% else %}
+            {% set linkTitle = __('Show all entries') %}
+            {% set routeArgs = own ? {all: 1, own: 1} : {all: 1} %}
+            <a href="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'view', routeArgs) }}" title="{{ linkTitle|e('html_attr') }}"><i class="fa fa-table"></i> {{ linkTitle }}</a>
+        {% endif %}
+        {% if own == 1 %}
+            {% set linkTitle = __('Show also entries from other users') %}
+            {% set routeArgs = all ? {all: 1} : {} %}
+            <a href="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'view', routeArgs) }}" title="{{ linkTitle|e('html_attr') }}"><i class="fa fa-users"></i> {{ linkTitle }}</a>
+        {% else %}
+            {% set linkTitle = __('Show only own entries') %}
+            {% set routeArgs = all ? {all: 1, own: 1} : {own: 1} %}
+            <a href="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'view', routeArgs) }}" title="{{ linkTitle|e('html_attr') }}"><i class="fa fa-user"></i> {{ linkTitle }}</a>
+        {% endif %}
+    </p>
+{% endblock %}
+{% block display_hooks %}
+    
+    {# here you can activate calling display hooks for the view page if you need it #}
+    {# % if routeArea != 'admin' %}
+        {% set hooks = notifyDisplayHooks(eventName='rkalmanacmodule.ui_hooks.dates.display_view', urlObject=currentUrlObject, outputAsArray=true) %}
+        {% if hooks is iterable and hooks|length > 0 %}
+            {% for area, hook in hooks %}
+                <div class="z-displayhook" data-area="{{ area|e('html_attr') }}">{{ hook|raw }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endif % #}
+{% endblock %}

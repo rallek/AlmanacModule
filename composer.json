@@ -1,0 +1,64 @@
+{
+    "name": "rk/almanac-module",
+    "version": "0.1.0",
+    "description": "a collection of dates",
+    "type": "zikula-module",
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Ralf Koester",
+            "email": "ralf@familie-koester.de",
+            "homepage": "http://k62.de",
+            "role": "owner"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "RK\\AlmanacModule\\": "" }
+    },
+    "require": {
+        "php": ">=5.5.9"
+    },
+    "require-dev": {
+        "jakub-onderka/php-parallel-lint": "*",
+        "phploc/phploc": "*",
+        "pdepend/pdepend": "2.*",
+        "squizlabs/php_codesniffer": "*",
+        "phpunit/phpunit": "4.*",
+        "theseer/phpdox": "*",
+        "phpmd/phpmd": "2.*",
+        "sebastian/phpcpd": "*"
+    },
+    "extra": {
+        "zikula": {
+            "core-compatibility": ">=1.5.5 <3.0",
+            "class": "RK\\AlmanacModule\\RKAlmanacModule",
+            "displayname": "Almanac",
+            "url": "almanac",
+            "capabilities": {
+                "user": {"route": "rkalmanacmodule_date_index"},
+                "admin": {"route": "rkalmanacmodule_date_adminindex"},
+                "categorizable": {
+                    "entities": [
+                        "RK\\AlmanacModule\\Entity\\DateEntity"
+                    ]
+                }
+            },
+            "securityschema": {
+                "RKAlmanacModule::": "::",
+                "RKAlmanacModule:ItemListBlock:": "Block title::",
+                "RKAlmanacModule:ItemBlock:": "Block title::",
+                "RKAlmanacModule:ModerationBlock:": "Block title::",
+                "RKAlmanacModule:Date:": "Date ID::",
+                "RKAlmanacModule::Ajax": "::"
+            }
+        }
+    },
+    "config": {
+        "vendor-dir": "vendor",
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "5.5.9"
+        }
+    }
+}

@@ -1,0 +1,90 @@
+services:
+    # Event subscribers and listeners
+    rk_almanac_module.entity_lifecycle_listener:
+        class: RK\AlmanacModule\Listener\EntityLifecycleListener
+        arguments:
+            - "@service_container"
+            - "@event_dispatcher"
+            - "@logger"
+        tags:
+            - { name: doctrine.event_subscriber }
+    
+    rk_almanac_module.kernel_listener:
+        class: RK\AlmanacModule\Listener\KernelListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.installer_listener:
+        class: RK\AlmanacModule\Listener\InstallerListener
+        arguments:
+            - "@rk_almanac_module.entity_factory"
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.moduledispatch_listener:
+        class: RK\AlmanacModule\Listener\ModuleDispatchListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.mailer_listener:
+        class: RK\AlmanacModule\Listener\MailerListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.theme_listener:
+        class: RK\AlmanacModule\Listener\ThemeListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.userlogin_listener:
+        class: RK\AlmanacModule\Listener\UserLoginListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.userlogout_listener:
+        class: RK\AlmanacModule\Listener\UserLogoutListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.user_listener:
+        class: RK\AlmanacModule\Listener\UserListener
+        arguments:
+            - "@translator.default"
+            - "@rk_almanac_module.entity_factory"
+            - "@zikula_users_module.current_user"
+            - "@logger"
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.userregistration_listener:
+        class: RK\AlmanacModule\Listener\UserRegistrationListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.users_listener:
+        class: RK\AlmanacModule\Listener\UsersListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.group_listener:
+        class: RK\AlmanacModule\Listener\GroupListener
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.thirdparty_listener:
+        class: RK\AlmanacModule\Listener\ThirdPartyListener
+        arguments:
+            - "@filesystem"
+            - "@request_stack"
+            - "@rk_almanac_module.workflow_helper"
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    rk_almanac_module.workflow_events_listener:
+        class: RK\AlmanacModule\Listener\WorkflowEventsListener
+        arguments:
+            - "@zikula_permissions_module.api.permission"
+            - "@rk_almanac_module.notification_helper"
+        tags:
+            - { name: kernel.event_subscriber }
+    

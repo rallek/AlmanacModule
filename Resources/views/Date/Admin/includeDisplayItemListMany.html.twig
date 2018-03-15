@@ -1,0 +1,103 @@
+{# purpose of this template: inclusion template for display of related dates or hook assignments #}
+{#
+    You can use the context variable to check for the context of this list:
+        - 'display': list of related dates included in a display template
+        - 'hookDisplayView': list of dates assigned using an UI hook (display/view template)
+        - 'hookDisplayEdit': list of dates assigned using an UI hook (edit template)
+        - 'hookDisplayDelete': list of dates assigned using an UI hook (delete template)
+#}
+{% set hasAdminPermission = hasPermission('RKAlmanacModule:Date:', '::', 'ACCESS_COMMENT') %}
+{% set hasEditPermission = hasPermission('RKAlmanacModule:Date:', '::', 'ACCESS_COMMENT') %}
+{% if context != 'display' %}
+    <h3>{{ __('Assigned dates', 'rkalmanacmodule') }}</h3>
+    {{ pageAddAsset('stylesheet', zasset('@RKAlmanacModule:css/style.css')) }}
+    {{ pageAddAsset('stylesheet', zasset('@RKAlmanacModule:css/custom.css'), 120) }}
+    {{ pageAddAsset('stylesheet', asset('jquery-ui/themes/base/jquery-ui.min.css')) }}
+    {{ pageAddAsset('stylesheet', asset('bootstrap-jqueryui/bootstrap-jqueryui.min.css')) }}
+    {{ pageAddAsset('javascript', asset('jquery-ui/jquery-ui.min.js')) }}
+    {{ pageAddAsset('javascript', asset('bootstrap-jqueryui/bootstrap-jqueryui.min.js')) }}
+    {{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.js'), 99) }}
+    {% if context == 'hookDisplayView' and hasEditPermission %}
+        {% set entityNameTranslated = __('date', 'rkalmanacmodule') %}
+        {{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.HookAssignment.js'), 99) }}
+        {{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.EditFunctions.js'), 99) }}
+        {{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.InlineEditing.js'), 99) }}
+        {{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.AutoCompletion.js'), 99) }}
+    {% endif %}
+{% endif %}
+{% if noLink is not defined %}
+    {% set noLink = false %}
+{% endif %}
+{% if items|default and items|length > 0 %}
+<ul class="list-group rkalmanacmodule-related-item-list date">
+{% for item in items %}
+    {% if hasAdminPermission or item.workflowState == 'approved' or (item.workflowState in ['defered', 'trashed'] and hasEditPermission and currentUser|default and item.createdBy.getUid() == currentUser.uid) %}
+    <li class="list-group-item">
+<h4 class="list-group-item-heading">
+{% spaceless %}
+{% if not noLink %}
+    <a href="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'display', {'id': item.getId()}) }}" title="{{ item|rkalmanacmodule_formattedTitle|e('html_attr') }}">
+{% endif %}
+    {{ item|rkalmanacmodule_formattedTitle }}
+{% if not noLink %}
+    </a>
+    <a id="dateItem{{ item.getKey() }}Display" href="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'display', {'id': item.getId(), raw: 1}) }}" title="{{ __('Open quick view window') }}" class="rkalmanac-inline-window hidden" data-modal-title="{{ item|rkalmanacmodule_formattedTitle|e('html_attr') }}"><i class="fa fa-id-card-o"></i></a>
+{% endif %}
+{% endspaceless %}
+</h4>
+{% if item.dateImage is not empty and item.dateImageMeta.isImage %}
+    <p class="list-group-item-text">
+        <img src="{{ item.dateImage.getPathname()|imagine_filter('zkroot', relationThumbRuntimeOptions) }}" alt="{{ item|rkalmanacmodule_formattedTitle|e('html_attr') }}" width="{{ relationThumbRuntimeOptions.thumbnail.size[0] }}" height="{{ relationThumbRuntimeOptions.thumbnail.size[1] }}" class="img-rounded" />
+    </p>
+{% endif %}
+{% if context == 'hookDisplayView' and hasEditPermission %}
+    {% set assignmentId = '' %}
+    {% for assignment in assignments if assignment.getAssignedId() == item.getKey() %}
+        {% set assignmentId = assignment.getId() %}
+    {% endfor %}
+    <p class="list-group-item-text">
+        <a href="javascript:void(0);" title="{{ __f('Detach this %name%', {'%name%': entityNameTranslated}, 'rkalmanacmodule')|e('html_attr') }}" class="detach-rkalmanacmodule-object hidden" data-assignment-id="{{ assignmentId|e('html_attr') }}"><i class="fa fa-chain-broken"></i> {{ __f('Detach %name%', {'%name%': entityNameTranslated}, 'rkalmanacmodule') }}</a>
+    </p>
+{% endif %}
+    </li>
+    {% endif %}
+{% endfor %}
+</ul>
+{% endif %}
+{% if context == 'hookDisplayView' and hasEditPermission %}
+    {% set idPrefix = 'hookAssignmentDate' %}
+    {% set addLinkText = __f('Attach %name%', {'%name%': entityNameTranslated}, 'rkalmanacmodule') %}
+    <div id="{{ idPrefix }}LiveSearch" class="rkalmanacmodule-add-hook-assignment">
+        <a id="{{ idPrefix }}AddLink" href="javascript:void(0);" title="{{ addLinkText|e('html_attr') }}" class="attach-rkalmanacmodule-object hidden" data-owner="{{ subscriberOwner|e('html_attr') }}" data-area-id="{{ subscriberAreaId|e('html_attr') }}" data-object-id="{{ subscriberObjectId|e('html_attr') }}" data-url="{{ subscriberUrl|e('html_attr') }}" data-assigned-entity="date"><i class="fa fa-link"></i> {{ addLinkText }}</a>
+        <div id="{{ idPrefix }}AddFields" class="rkalmanacmodule-autocomplete-with-image">
+            <label for="{{ idPrefix }}Selector">{{ __f('Find %name%', {'%name%': entityNameTranslated}, 'rkalmanacmodule') }}</label>
+            <br />
+            <i class="fa fa-search" title="{{ __f('Search %name%', {'%name%': entityNameTranslated}, 'rkalmanacmodule')|e('html_attr') }}"></i>
+            <input type="hidden" name="{{ idPrefix }}" id="{{ idPrefix }}" value="{% for assignment in assignments %}{% if not loop.first %},{% endif %}{{ assignment.getAssignedId() }}{% endfor %}" />
+            <input type="hidden" name="{{ idPrefix }}Multiple" id="{{ idPrefix }}Multiple" value="0" />
+            <input type="text" id="{{ idPrefix }}Selector" name="{{ idPrefix }}Selector" autocomplete="off" />
+            <input type="button" id="{{ idPrefix }}SelectorDoCancel" name="{{ idPrefix }}SelectorDoCancel" value="{{ __('Cancel', 'rkalmanacmodule') }}" class="btn btn-default rkalmanacmodule-inline-button" />
+            <a id="{{ idPrefix }}SelectorDoNew" href="{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'edit') }}" title="{{ __f('Create new %name%', {'%name%': entityNameTranslated}, 'rkalmanacmodule') }}" class="btn btn-default rkalmanacmodule-inline-button"><i class="fa fa-plus"></i> {{ __('Create', 'rkalmanacmodule') }}</a>
+            <noscript><p>{{ __('This function requires JavaScript activated!') }}</p></noscript>
+        </div>
+    </div>
+    {% set assignmentInitScript %}
+        <script>
+        /* <![CDATA[ */
+            var rKAlmanacInlineEditHandlers = [];
+            var rKAlmanacEditHandler = {
+                alias: '{{ idPrefix }}',
+                prefix: '{{ idPrefix }}SelectorDoNew',
+                moduleName: 'RKAlmanacModule',
+                objectType: 'date',
+                inputType: 'autocomplete',
+                windowInstanceId: null
+            };
+            rKAlmanacInlineEditHandlers.push(rKAlmanacEditHandler);
+
+            rKAlmanacInitRelationHandling('date', '{{ idPrefix }}', '{{ idPrefix }}SelectorDoNew', true, 'autocomplete', '{{ path('rkalmanacmodule_date_' ~ routeArea ~ 'edit') }}');
+        /* ]]> */
+        </script>
+    {% endset %}
+    {{ pageAddAsset('footer', assignmentInitScript) }}
+{% endif %}

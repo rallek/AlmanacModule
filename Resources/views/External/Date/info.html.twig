@@ -1,0 +1,26 @@
+{# Purpose of this template: Display item information for previewing from other modules #}
+<dl id="date{{ date.getKey() }}">
+<dt>{{ date|rkalmanacmodule_formattedTitle|notifyFilters('almanac.filter_hooks.dates.filter')|safeHtml }}</dt>
+<dd>{% if date.dateImage is not empty and date.dateImageMeta|default %}
+            <a href="{{ date.dateImageUrl }}" title="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}"{% if date.dateImageMeta.isImage %} class="image-link"{% endif %}>
+{% if date.dateImageMeta.isImage %}
+    {% set thumbOptions = attribute(thumbRuntimeOptions, 'dateDateImage') %}
+    <img src="{{ date.dateImage.getPathname()|imagine_filter('zkroot', thumbOptions) }}" alt="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}" width="{{ thumbOptions.thumbnail.size[0] }}" height="{{ thumbOptions.thumbnail.size[1] }}" class="img-thumbnail" />
+{% else %}
+    {{ __('Download') }} ({{ date.dateImageMeta.size|rkalmanacmodule_fileSize(date.dateImage.getPathname(), false, false) }})
+{% endif %}
+</a>
+{% else %}&nbsp;{% endif %}
+</dd>
+{% if date.dateDescription is not empty %}<dd>{{ date.dateDescription }}</dd>{% endif %}
+{% if featureActivationHelper.isEnabled(constant('RK\\AlmanacModule\\Helper\\FeatureActivationHelper::CATEGORIES'), 'date') %}
+    <dd>
+        <dl class="category-list">
+        {% for propName, catMapping in date.categories %}
+            <dt>{{ propName }}</dt>
+            <dd>{{ catMapping.category.display_name[app.request.locale]|default(catMapping.category.name) }}</dd>
+        {% endfor %}
+        </dl>
+    </dd>
+{% endif %}
+</dl>

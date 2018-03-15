@@ -1,0 +1,92 @@
+workflow:
+    workflows:
+        rkalmanacmodule_standard:
+            type: state_machine
+            marking_store:
+                type: single_state
+                arguments:
+                    - workflowState
+            supports:
+                - RK\AlmanacModule\Entity\DateEntity
+            places:
+                - initial
+                - deferred
+                - waiting
+                - approved
+                - suspended
+                - archived
+                - trashed
+                - deleted
+            transitions:
+                recoverdeferred:
+                    from: trashed
+                    to: deferred
+                defer:
+                    from: initial
+                    to: deferred
+                updatewaiting:
+                    from: waiting
+                    to: waiting
+                submit:
+                    from: [initial, deferred]
+                    to: waiting
+                updateapproved:
+                    from: approved
+                    to: approved
+                updatedeferred:
+                    from: deferred
+                    to: deferred
+                archive:
+                    from: [approved, suspended]
+                    to: archived
+                updatesuspended:
+                    from: suspended
+                    to: suspended
+                trashsuspended:
+                    from: suspended
+                    to: trashed
+                delete:
+                    from: [deferred, waiting, approved, suspended, archived, trashed]
+                    to: deleted
+                recoverapproved:
+                    from: trashed
+                    to: approved
+                recoverwaiting:
+                    from: trashed
+                    to: waiting
+                approve:
+                    from: [initial, waiting]
+                    to: approved
+                reject:
+                    from: waiting
+                    to: deferred
+                unpublish:
+                    from: approved
+                    to: suspended
+                recoversuspended:
+                    from: trashed
+                    to: suspended
+                publish:
+                    from: suspended
+                    to: approved
+                unarchive:
+                    from: archived
+                    to: approved
+                trashwaiting:
+                    from: waiting
+                    to: trashed
+                trasharchived:
+                    from: archived
+                    to: trashed
+                trashdeferred:
+                    from: deferred
+                    to: trashed
+                updatearchived:
+                    from: archived
+                    to: archived
+                trashapproved:
+                    from: approved
+                    to: trashed
+                recoverarchived:
+                    from: trashed
+                    to: archived

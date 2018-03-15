@@ -1,0 +1,13 @@
+{# Purpose of this template: Display dates within an external context #}
+<dl>
+    {% for date in items %}
+        <dt>{{ date|rkalmanacmodule_formattedTitle }}</dt>
+        {% if date.dateDescription %}
+            <dd>{{ date.dateDescription|striptags|truncate(200, true, '&hellip;') }}</dd>
+        {% endif %}
+        <dd><a href="{{ path('rkalmanacmodule_date_display', {'id': date.getId()}) }}" title="{{ __('Read more')|e('html_attr') }}">{{ __('Read more') }}</a>
+        </dd>
+    {% else %}
+        <dt>{{ __('No entries found.') }}</dt>
+    {% endfor %}
+</dl>

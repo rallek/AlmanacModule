@@ -1,0 +1,13 @@
+services:
+    # Twig extension
+    rk_almanac_module.twig_extension:
+        class: RK\AlmanacModule\Twig\TwigExtension
+        arguments:
+            - "@translator.default"
+            - "@zikula_extensions_module.api.variable"
+            - "@rk_almanac_module.entity_display_helper"
+            - "@rk_almanac_module.workflow_helper"
+            - "@rk_almanac_module.listentries_helper"
+        public: false
+        tags:
+            - { name: twig.extension }

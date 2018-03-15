@@ -1,0 +1,140 @@
+services:
+    # Helper services
+    rk_almanac_module.archive_helper:
+        class: RK\AlmanacModule\Helper\ArchiveHelper
+        arguments:
+            - "@translator.default"
+            - "@request_stack"
+            - "@logger"
+            - "@zikula_permissions_module.api.permission"
+            - "@rk_almanac_module.entity_factory"
+            - "@rk_almanac_module.workflow_helper"
+            - "@rk_almanac_module.hook_helper"
+    
+    rk_almanac_module.category_helper:
+        class: RK\AlmanacModule\Helper\CategoryHelper
+        arguments:
+            - "@translator.default"
+            - "@request_stack"
+            - "@logger"
+            - "@zikula_users_module.current_user"
+            - "@zikula_categories_module.category_registry_repository"
+            - "@zikula_categories_module.api.category_permission"
+    
+    rk_almanac_module.collection_filter_helper:
+        class: RK\AlmanacModule\Helper\CollectionFilterHelper
+        arguments:
+            - "@request_stack"
+            - "@zikula_users_module.current_user"
+            - "@rk_almanac_module.category_helper"
+            - "@=service('zikula_extensions_module.api.variable').get('RKAlmanacModule', 'showOnlyOwnEntries', false)"
+    
+    rk_almanac_module.controller_helper:
+        class: RK\AlmanacModule\Helper\ControllerHelper
+        arguments:
+            - "@translator.default"
+            - "@request_stack"
+            - "@rk_almanac_module.archive_helper"
+            - "@router"
+            - "@form.factory"
+            - "@zikula_extensions_module.api.variable"
+            - "@rk_almanac_module.entity_factory"
+            - "@rk_almanac_module.collection_filter_helper"
+            - "@rk_almanac_module.model_helper"
+            - "@rk_almanac_module.image_helper"
+            - "@rk_almanac_module.feature_activation_helper"
+    
+    rk_almanac_module.entity_display_helper:
+        class: RK\AlmanacModule\Helper\EntityDisplayHelper
+        arguments:
+            - "@translator.default"
+            - "@request_stack"
+            - "@rk_almanac_module.listentries_helper"
+    
+    rk_almanac_module.feature_activation_helper:
+        class: RK\AlmanacModule\Helper\FeatureActivationHelper
+    
+    rk_almanac_module.hook_helper:
+        class: RK\AlmanacModule\Helper\HookHelper
+        arguments:
+            - "@hook_dispatcher"
+    
+    rk_almanac_module.image_helper:
+        class: RK\AlmanacModule\Helper\ImageHelper
+        arguments:
+            - "@translator.default"
+            - "@session"
+            - "@zikula_extensions_module.api.variable"
+    
+    rk_almanac_module.listentries_helper:
+        class: RK\AlmanacModule\Helper\ListEntriesHelper
+        arguments:
+            - "@translator.default"
+    
+    rk_almanac_module.model_helper:
+        class: RK\AlmanacModule\Helper\ModelHelper
+        arguments:
+            - "@rk_almanac_module.entity_factory"
+    
+    rk_almanac_module.notification_helper:
+        class: RK\AlmanacModule\Helper\NotificationHelper
+        arguments:
+            - "@kernel"
+            - "@translator.default"
+            - "@session"
+            - "@router"
+            - "@request_stack"
+            - "@zikula_extensions_module.api.variable"
+            - "@twig"
+            - "@zikula_mailer_module.api.mailer"
+            - "@zikula_groups_module.group_repository"
+            - "@rk_almanac_module.entity_display_helper"
+            - "@rk_almanac_module.workflow_helper"
+    
+    rk_almanac_module.search_helper:
+        class: RK\AlmanacModule\Helper\SearchHelper
+        arguments:
+            - "@translator.default"
+            - "@zikula_permissions_module.api.permission"
+            - "@session"
+            - "@request_stack"
+            - "@rk_almanac_module.entity_factory"
+            - "@rk_almanac_module.controller_helper"
+            - "@rk_almanac_module.entity_display_helper"
+            - "@rk_almanac_module.feature_activation_helper"
+            - "@rk_almanac_module.category_helper"
+        tags:
+            - { name: zikula.searchable_module, bundleName: RKAlmanacModule }
+    
+    rk_almanac_module.upload_helper:
+        class: RK\AlmanacModule\Helper\UploadHelper
+        arguments:
+            - "@translator.default"
+            - "@filesystem"
+            - "@session"
+            - "@logger"
+            - "@zikula_users_module.current_user"
+            - "@=service('zikula_extensions_module.api.variable').getAll('RKAlmanacModule')"
+            - "%datadir%"
+    
+    rk_almanac_module.view_helper:
+        class: RK\AlmanacModule\Helper\ViewHelper
+        arguments:
+            - "@twig"
+            - "@twig.loader"
+            - "@request_stack"
+            - "@zikula_permissions_module.api.permission"
+            - "@zikula_extensions_module.api.variable"
+            - "@zikula_core.common.theme.pagevars"
+            - "@rk_almanac_module.controller_helper"
+    
+    rk_almanac_module.workflow_helper:
+        class: RK\AlmanacModule\Helper\WorkflowHelper
+        arguments:
+            - "@translator.default"
+            - "@workflow.registry"
+            - "@logger"
+            - "@zikula_permissions_module.api.permission"
+            - "@zikula_users_module.current_user"
+            - "@rk_almanac_module.entity_factory"
+            - "@rk_almanac_module.listentries_helper"

@@ -1,0 +1,56 @@
+application "Almanac" targets ZK15 {
+    documentation "a collection of dates"
+    vendor "RK"
+    author "Ralf Koester"
+    email "ralf@familie-koester.de"
+    url "http://k62.de"
+    version "0.1.0"
+    prefix "alma"
+    generateCsvTemplates false
+    generateXmlTemplates false
+    generateKmlTemplates false
+    generateIcsTemplates false
+    separateAdminTemplates true
+    entities {
+        entity "date" leading categorisable {
+            nameMultiple "dates"
+            displayPattern "#dateTitle#"
+            workflow STANDARD
+            hasArchive true
+            hasTray true
+            ownerPermission true
+            uiHooksProvider ENABLED
+            fields {
+                string "dateTitle",
+                text "dateDescription" {
+                    mandatory false
+                    length 20000
+                },
+                boolean "allDay" {
+                    defaultValue "true"
+                    mandatory false
+                },
+                datetime "allDayDate" {
+                    mandatory false
+                    components DATE
+                },
+                datetime "startDate" startDate,
+                datetime "endDate" endDate,
+                upload "dateImage" {
+                    mandatory false
+                },
+                url "dateUrl" {
+                    mandatory false
+                }
+            }
+            actions {
+                mainAction "Index",
+                viewAction "View",
+                displayAction "Display",
+                editAction "Edit"
+            ,
+                deleteAction "Delete"
+            }
+        }
+    }
+    }

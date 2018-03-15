@@ -1,0 +1,134 @@
+{# purpose of this template: module configuration page #}
+{% extends 'RKAlmanacModule::adminBase.html.twig' %}
+{% block title __('Settings') %}
+{% block admin_page_icon 'wrench' %}
+{% block content %}
+    <div class="rkalmanacmodule-config">
+        {% form_theme form with [
+            '@RKAlmanacModule/Form/bootstrap_3.html.twig',
+            'ZikulaFormExtensionBundle:Form:form_div_layout.html.twig'
+        ] %}
+        {{ form_start(form) }}
+        <div class="zikula-bootstrap-tab-container">
+            <ul class="nav nav-tabs">
+                {% set tabTitle = __('Moderation') %}
+                <li role="presentation" class="active">
+                    <a id="vars1Tab" href="#tab1" title="{{ tabTitle|e('html_attr') }}" role="tab" data-toggle="tab">{{ tabTitle }}</a>
+                </li>
+                {% set tabTitle = __('List views') %}
+                <li role="presentation">
+                    <a id="vars2Tab" href="#tab2" title="{{ tabTitle|e('html_attr') }}" role="tab" data-toggle="tab">{{ tabTitle }}</a>
+                </li>
+                {% set tabTitle = __('Images') %}
+                <li role="presentation" class=" dropdown">
+                    <a id="imagesTabDrop" class="dropdown-toggle" href="#" data-toggle="dropdown" aria-controls="imagesTabDropSections" aria-expanded="false" title="{{ tabTitle|e('html_attr') }}">{{ tabTitle }}<span class="caret"></span></a>
+                    <ul id="imagesTabDropSections" class="dropdown-menu" aria-labelledby="imagesTabDrop">
+                    <li>
+                        <a id="imagesDateDateImageTab" href="#tabImagesDateDateImage" role="tab" data-toggle="tab" aria-controls="tabImagesDateDateImage">{{ __('Dates date image') }}</a>
+                    </li>
+                    </ul>
+                </li>
+                {% set tabTitle = __('Integration') %}
+                <li role="presentation">
+                    <a id="vars4Tab" href="#tab4" title="{{ tabTitle|e('html_attr') }}" role="tab" data-toggle="tab">{{ tabTitle }}</a>
+                </li>
+                {% set tabTitle = __('Workflows') %}
+                <li role="presentation">
+                    <a id="workflowsTab" href="#tabWorkflows" title="{{ tabTitle|e('html_attr') }}" role="tab" data-toggle="tab">{{ tabTitle }}</a>
+                </li>
+            </ul>
+
+            {{ form_errors(form) }}
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="tab1" aria-labelledby="vars1Tab">
+                    {% set tabTitle = __('Moderation') %}
+                    <fieldset>
+                        <legend>{{ tabTitle }}</legend>
+                    
+                        <p class="alert alert-info">{{ __('Here you can assign moderation groups for enhanced workflow actions.')|nl2br }}</p>
+                    
+                        {{ form_row(form.moderationGroupForDates) }}
+                    </fieldset>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="tab2" aria-labelledby="vars2Tab">
+                    {% set tabTitle = __('List views') %}
+                    <fieldset>
+                        <legend>{{ tabTitle }}</legend>
+                    
+                        <p class="alert alert-info">{{ __('Here you can configure parameters for list views.')|nl2br }}</p>
+                    
+                        {{ form_row(form.dateEntriesPerPage) }}
+                        {{ form_row(form.linkOwnDatesOnAccountPage) }}
+                    </fieldset>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="tabImagesDateDateImage" aria-labelledby="imagesDateDateImageTab">
+                    {% set tabTitle = __('Image settings for dates date image') %}
+                    <fieldset>
+                        <legend>{{ tabTitle }}</legend>
+                
+                        {{ form_row(form.enableShrinkingForDateDateImage) }}
+                        <div id="shrinkDetailsDateDateImage">
+                        {{ form_row(form.shrinkWidthDateDateImage) }}
+                        {{ form_row(form.shrinkHeightDateDateImage) }}
+                        </div>
+                        {{ form_row(form.thumbnailModeDateDateImage) }}
+                        {{ form_row(form.thumbnailWidthDateDateImageView) }}
+                        {{ form_row(form.thumbnailHeightDateDateImageView) }}
+                        {{ form_row(form.thumbnailWidthDateDateImageDisplay) }}
+                        {{ form_row(form.thumbnailHeightDateDateImageDisplay) }}
+                        {{ form_row(form.thumbnailWidthDateDateImageEdit) }}
+                        {{ form_row(form.thumbnailHeightDateDateImageEdit) }}
+                    </fieldset>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="tab4" aria-labelledby="vars4Tab">
+                    {% set tabTitle = __('Integration') %}
+                    <fieldset>
+                        <legend>{{ tabTitle }}</legend>
+                    
+                        <p class="alert alert-info">{{ __('These options allow you to configure integration aspects.')|nl2br }}</p>
+                    
+                        {{ form_row(form.enabledFinderTypes) }}
+                    </fieldset>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="tabWorkflows" aria-labelledby="workflowsTab">
+                    {% set tabTitle = __('Workflows') %}
+                    <fieldset>
+                        <legend>{{ tabTitle }}</legend>
+                
+                        <p class="alert alert-info">{{ __('Here you can inspect and amend the existing workflows.') }}</p>
+                
+                        <h4>{{ __('Dates') }}</h4>
+                        <p><a href="{{ path('zikula_workflow_editor_index', {workflow: 'rkalmanacmodule_standard'}) }}" title="{{ __('Edit workflow for dates') }}" target="_blank"><i class="fa fa-cubes"></i> {{ __('Edit dates workflow') }}</a>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group form-buttons">
+            <div class="col-sm-offset-3 col-sm-9">
+                {{ form_widget(form.save) }}
+                {{ form_widget(form.reset) }}
+                {{ form_widget(form.cancel) }}
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+    {{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.Config.js')) }}
+    {{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.Validation.js'), 98) }}
+    {{ pageAddAsset('javascript', zasset('@RKAlmanacModule:js/RKAlmanacModule.EditFunctions.js'), 99) }}
+    {% set formInitScript %}
+        <script>
+        /* <![CDATA[ */
+            ( function($) {
+                $(document).ready(function() {
+                    rKAlmanacInitEditForm('edit', '1');
+                });
+            })(jQuery);
+        /* ]]> */
+        </script>
+    {% endset %}
+    {{ pageAddAsset('footer', formInitScript) }}
+{% endblock %}

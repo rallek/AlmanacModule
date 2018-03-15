@@ -1,0 +1,19 @@
+services:
+    # Form field types
+    
+    rk_almanac_module.form.type.field.multilist:
+        class: RK\AlmanacModule\Form\Type\Field\MultiListType
+        arguments:
+            - "@rk_almanac_module.listentries_helper"
+        tags:
+            - { name: form.type }
+    
+    rk_almanac_module.form.type.field.upload:
+        class: RK\AlmanacModule\Form\Type\Field\UploadType
+        arguments:
+            - "@translator.default"
+            - "@request_stack"
+            - "@rk_almanac_module.image_helper"
+            - "@rk_almanac_module.upload_helper"
+        tags:
+            - { name: form.type }

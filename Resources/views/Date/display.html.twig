@@ -1,0 +1,106 @@
+{# purpose of this template: dates user display view #}
+{% set baseTemplate = app.request.query.getBoolean('raw', false) ? 'raw' : 'base' %}
+{% extends 'RKAlmanacModule::' ~ baseTemplate ~ '.html.twig' %}
+{% block pageTitle %}{{ date|rkalmanacmodule_formattedTitle|default(__('Date')) }}{% endblock %}
+{% block title %}
+    {% set templateTitle = date|rkalmanacmodule_formattedTitle|default(__('Date')) %}
+    {{ templateTitle|notifyFilters('rkalmanacmodule.filter_hooks.dates.filter')|safeHtml }}{% if routeArea == 'admin' %} <small>({{ date.workflowState|rkalmanacmodule_objectState(false)|lower }})</small>{% endif %}
+    {% set itemActions = knp_menu_get('RKAlmanacModule:ItemActionsMenu:menu', [], {entity: date, area: routeArea, context: 'display'}) %}
+    <div class="dropdown">
+        <a id="itemActions{{ date.getKey() }}DropDownToggleStart" role="button" data-toggle="dropdown" data-target="#" href="javascript:void(0);" class="hidden dropdown-toggle"><i class="fa fa-tasks"></i> {{ __('Actions') }} <span class="caret"></span></a>
+        {{ knp_menu_render(itemActions, {template: 'ZikulaMenuModule:Override:bootstrap_fontawesome.html.twig'}) }}
+    </div>
+{% endblock %}
+{% block content %}
+    {% set isQuickView = app.request.query.getBoolean('raw', false) %}
+    <div class="rkalmanacmodule-date rkalmanacmodule-display">
+
+    <dl>
+        {% if date.workflowState is not empty and routeArea == 'admin' %}
+            <dt>{{ __('State') }}</dt>
+            <dd>{{ date.workflowState|rkalmanacmodule_listEntry('date', 'workflowState') }}</dd>
+        {% endif %}
+        {% if date.dateTitle is not empty %}
+            <dt>{{ __('Date title') }}</dt>
+            <dd>{{ date.dateTitle }}</dd>
+        {% endif %}
+        {% if date.dateDescription is not empty %}
+            <dt>{{ __('Date description') }}</dt>
+            <dd>{{ date.dateDescription|safeHtml }}</dd>
+        {% endif %}
+        {% if date.allDay is not empty %}
+            <dt>{{ __('All day') }}</dt>
+            <dd>{% if date.allDay %}
+                <i class="fa fa-check" title="{{ __('Yes') }}"></i>
+            {% else %}
+                <i class="fa fa-times" title="{{ __('No') }}"></i>
+            {% endif %}
+            </dd>
+        {% endif %}
+        {% if date.allDayDate is not empty %}
+            <dt>{{ __('All day date') }}</dt>
+            <dd>{{ date.allDayDate|localizeddate('medium', 'none') }}</dd>
+        {% endif %}
+        {% if date.startDate is not empty %}
+            <dt>{{ __('Start date') }}</dt>
+            <dd>{{ date.startDate|localizeddate('medium', 'short') }}</dd>
+        {% endif %}
+        {% if date.endDate is not empty %}
+            <dt>{{ __('End date') }}</dt>
+            <dd>{{ date.endDate|localizeddate('medium', 'short') }}</dd>
+        {% endif %}
+        {% if date.dateImage is not empty %}
+            <dt>{{ __('Date image') }}</dt>
+            <dd>{% if date.dateImage is not empty and date.dateImageMeta|default %}
+                        <a href="{{ date.dateImageUrl }}" title="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}"{% if date.dateImageMeta.isImage %} class="image-link"{% endif %}>
+            {% if date.dateImageMeta.isImage %}
+                {% set thumbOptions = attribute(thumbRuntimeOptions, 'dateDateImage') %}
+                <img src="{{ date.dateImage.getPathname()|imagine_filter('zkroot', thumbOptions) }}" alt="{{ date|rkalmanacmodule_formattedTitle|e('html_attr') }}" width="{{ thumbOptions.thumbnail.size[0] }}" height="{{ thumbOptions.thumbnail.size[1] }}" class="img-thumbnail" />
+            {% else %}
+                {{ __('Download') }} ({{ date.dateImageMeta.size|rkalmanacmodule_fileSize(date.dateImage.getPathname(), false, false) }})
+            {% endif %}
+            </a>
+            {% else %}&nbsp;{% endif %}
+            </dd>
+        {% endif %}
+        {% if date.dateUrl is not empty %}
+            <dt>{{ __('Date url') }}</dt>
+            <dd>{% if date.dateUrl is not empty %}
+            {% if not isQuickView %}
+            <a href="{{ date.dateUrl }}" title="{{ __('Visit this page') }}"><i class="fa fa-external-link-square"></i></a>
+            {% else %}
+                {{ date.dateUrl }}
+            {% endif %}
+            {% else %}&nbsp;{% endif %}
+            </dd>
+        {% endif %}
+        
+    </dl>
+
+    {% if featureActivationHelper.isEnabled(constant('RK\\AlmanacModule\\Helper\\FeatureActivationHelper::CATEGORIES'), 'date') %}
+        {{ include('@RKAlmanacModule/Helper/includeCategoriesDisplay.html.twig', {obj: date}) }}
+    {% endif %}
+    <h3 class="hook-assignments">{{ __('Hook assignments') }}</h3>
+        {% if hookAssignments|length > 0 %}
+            <p>{{ __('This date is assigned to the following data objects:') }}</p>
+            <ul>
+            {% for assignment in hookAssignments %}
+            	<li><a href="{{ assignment.url|e('html_attr') }}" title="{{ __('View this object')|e('html_attr') }}">{{ assignment.date|localizeddate('medium', 'short') }} - {{ assignment.text }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>{{ __('This date is not assigned to any data objects yet.') }}</p>
+        {% endif %}
+    {{ include('@RKAlmanacModule/Helper/includeStandardFieldsDisplay.html.twig', {obj: date}) }}
+
+    {{ block('display_hooks') }}
+</div>
+{% endblock %}
+{% block display_hooks %}
+    {% set hooks = notifyDisplayHooks(eventName='rkalmanacmodule.ui_hooks.dates.display_view', id=date.getKey(), urlObject=currentUrlObject, outputAsArray=true) %}
+    {% if hooks is iterable and hooks|length > 0 %}
+        {% for area, hook in hooks %}
+            <div class="z-displayhook" data-area="{{ area|e('html_attr') }}">{{ hook|raw }}</div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

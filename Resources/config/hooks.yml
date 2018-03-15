@@ -1,0 +1,32 @@
+services:
+    rk_almanac_module.hook_subscriber.filter_hooks.dates:
+        class: RK\AlmanacModule\HookSubscriber\DateFilterHooksSubscriber
+        arguments:
+            - "@translator.default"
+        tags:
+            - { name: zikula.hook_subscriber, areaName: 'subscriber.rkalmanacmodule.filter_hooks.dates' }
+
+    rk_almanac_module.hook_subscriber.form_aware_hook.dates:
+        class: RK\AlmanacModule\HookSubscriber\DateFormAwareHookSubscriber
+        arguments:
+            - "@translator.default"
+        tags:
+            - { name: zikula.hook_subscriber, areaName: 'subscriber.rkalmanacmodule.form_aware_hook.dates' }
+
+    rk_almanac_module.hook_subscriber.ui_hooks.dates:
+        class: RK\AlmanacModule\HookSubscriber\DateUiHooksSubscriber
+        arguments:
+            - "@translator.default"
+        tags:
+            - { name: zikula.hook_subscriber, areaName: 'subscriber.rkalmanacmodule.ui_hooks.dates' }
+
+    rk_almanac_module.hook_provider.ui_hooks.dates:
+        class: RK\AlmanacModule\HookProvider\DateUiHooksProvider
+        arguments:
+            - "@translator.default"
+            - "@request_stack"
+            - "@rk_almanac_module.entity_factory"
+            - "@twig"
+        tags:
+            - { name: zikula.hook_provider, areaName: 'provider.rkalmanacmodule.ui_hooks.dates' }
+
