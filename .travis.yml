@@ -55,7 +55,6 @@ install:
 script:
     - php app/console lint:yaml modules/rk/almanac-module/Resources
     - php app/console lint:twig @RKAlmanacModule
-    - phpunit --configuration modules/rk/almanac-module/phpunit.xml.dist --coverage-text --coverage-clover=coverage.clover -v
 
 after_script:
     - wget https://scrutinizer-ci.com/ocular.phar

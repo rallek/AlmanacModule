@@ -10,7 +10,9 @@ application "Almanac" targets ZK15 {
     generateXmlTemplates false
     generateKmlTemplates false
     generateIcsTemplates false
+    versionAllGeneratedFiles false
     separateAdminTemplates true
+    generateTests false
     markFiles ".gitignore"
     entities {
         entity "date" leading categorisable {
