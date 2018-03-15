@@ -1,5 +1,5 @@
 application "Almanac" targets ZK15 {
-    documentation "a collection of dates"
+    documentation "a collection of dates with archive"
     vendor "RK"
     author "Ralf Koester"
     email "ralf@familie-koester.de"
@@ -11,6 +11,7 @@ application "Almanac" targets ZK15 {
     generateKmlTemplates false
     generateIcsTemplates false
     separateAdminTemplates true
+    markFiles ".gitignore"
     entities {
         entity "date" leading categorisable {
             nameMultiple "dates"
@@ -21,25 +22,36 @@ application "Almanac" targets ZK15 {
             ownerPermission true
             uiHooksProvider ENABLED
             fields {
-                string "dateTitle",
+                string "dateTitle" {
+                    documentation "The title will be the identifier for the date"
+                },
                 text "dateDescription" {
+                    documentation "here you can tell a bit about the date"
                     mandatory false
                     length 20000
                 },
                 boolean "allDay" {
+                    documentation "if allDay is true the date has no begin and end. Only single day dates are possible."
                     defaultValue "true"
                     mandatory false
                 },
                 datetime "allDayDate" {
+                    documentation "complete day"
                     mandatory false
                     components DATE
                 },
-                datetime "startDate" startDate,
-                datetime "endDate" endDate,
+                datetime "startDate" startDate {
+                    documentation "Begin of the date"
+                },
+                datetime "endDate" endDate {
+                    documentation "end of the date"
+                },
                 upload "dateImage" {
+                    documentation "you can upload one image"
                     mandatory false
                 },
                 url "dateUrl" {
+                    documentation "you can add a date URL"
                     mandatory false
                 }
             }

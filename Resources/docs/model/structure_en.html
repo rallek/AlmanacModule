@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="a collection of dates">
+    <meta name="description" content="a collection of dates with archive">
     <meta name="author" content="Ralf Koester">
     <title>Almanac &ndash; Technical structure</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -40,7 +40,7 @@
               <img src="../../public/images/admin.png" width="48" height="48" alt="Icon" class="img-thumbnail pull-right" />
               Almanac &ndash; Technical structure
           </h1>
-          <p>a collection of dates</p>
+          <p>a collection of dates with archive</p>
 <div class="table-responsive">
     <table class="table-striped table-bordered table-hover table-condensed">
         <colgroup>
@@ -219,6 +219,7 @@
                 </td>
                 <td headers="hEntityDateFieldDateTitle hEntityDateFieldRemarks">
                     <ul>
+                        <li>The title will be the identifier for the date </li>
                         <li>This field is not unique and allows no null values.</li>
                     </ul>
                 </td>
@@ -251,6 +252,7 @@
                 </td>
                 <td headers="hEntityDateFieldAllDay hEntityDateFieldRemarks">
                     <ul>
+                        <li>if allDay is true the date has no begin and end. Only single day dates are possible. </li>
                         <li>This field is not unique and allows no null values.</li>
                     </ul>
                 </td>
@@ -267,6 +269,7 @@
                 </td>
                 <td headers="hEntityDateFieldAllDayDate hEntityDateFieldRemarks">
                     <ul>
+                        <li>complete day </li>
                         <li>This field is not unique and allows no null values.</li>
                     </ul>
                 </td>
@@ -283,6 +286,7 @@
                 </td>
                 <td headers="hEntityDateFieldStartDate hEntityDateFieldRemarks">
                     <ul>
+                        <li>Begin of the date </li>
                         <li>This field is not unique and allows no null values.</li>
                         <li>Acts as start date.</li>
                     </ul>
@@ -300,6 +304,7 @@
                 </td>
                 <td headers="hEntityDateFieldEndDate hEntityDateFieldRemarks">
                     <ul>
+                        <li>end of the date </li>
                         <li>This field is not unique and allows no null values.</li>
                         <li>Acts as end date.</li>
                     </ul>
@@ -320,6 +325,7 @@
                 </td>
                 <td headers="hEntityDateFieldDateImage hEntityDateFieldRemarks">
                     <ul>
+                        <li>you can upload one image </li>
                         <li>This field is not unique and allows null values.</li>
                         <li>Uploaded files are stored in the "dateimage" subfolder and keep their original file name which is extended by a counter if needed..</li>
                     </ul>

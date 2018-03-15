@@ -49,7 +49,7 @@ install:
     - unzip -q ../../../../RKAlmanacModule
     - cd  ../../..
     - php app/console bootstrap:bundles
-    - mysql -e "INSERT INTO zk_test.modules (id, name, type, displayname, url, description, directory, version, capabilities, state, securityschema, core_min, core_max) VALUES (NULL, 'RKAlmanacModule', '3', 'Almanac', 'almanac', 'a collection of dates', 'rk/almanac-module', '0.1.0', 'N;', '3', 'N;', '1.5.5', '3.0.0');"
+    - mysql -e "INSERT INTO zk_test.modules (id, name, type, displayname, url, description, directory, version, capabilities, state, securityschema, core_min, core_max) VALUES (NULL, 'RKAlmanacModule', '3', 'Almanac', 'almanac', 'a collection of dates with archive', 'rk/almanac-module', '0.1.0', 'N;', '3', 'N;', '1.5.5', '3.0.0');"
     - php app/console cache:warmup
 
 script:

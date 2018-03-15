@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="a collection of dates">
+    <meta name="description" content="a collection of dates with archive">
     <meta name="author" content="Ralf Koester">
     <title>Almanac &ndash; Technische Struktur</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -40,7 +40,7 @@
               <img src="../../public/images/admin.png" width="48" height="48" alt="Icon" class="img-thumbnail pull-right" />
               Almanac &ndash; Technische Struktur
           </h1>
-          <p>a collection of dates</p>
+          <p>a collection of dates with archive</p>
 <div class="table-responsive">
     <table class="table-striped table-bordered table-hover table-condensed">
         <colgroup>
@@ -110,15 +110,15 @@
         </thead>
         <tbody>
             <tr>
-                <th id="hDateSettingsLeading" scope="row" headers="hDateSettingsName">Führend</th>
+                <th id="hDateSettingsLeading" scope="row" headers="hDateSettingsName">FÃ¼hrend</th>
                 <td headers="hDateSettingsLeading hDateSettingsValue" class="text-center"><i class="fa fa-check"></i>
                 </td>
-                <td headers="hDateSettingsLeading hDateSettingsDescription">Ob dies die primäre Entität der Anwendung darstellt</td>
+                <td headers="hDateSettingsLeading hDateSettingsDescription">Ob dies die primÃ¤re EntitÃ¤t der Anwendung darstellt</td>
             </tr>
             <tr>
                 <th id="hDateSettingsDisplayPattern" scope="row" headers="hDateSettingsName">Anzeigemuster</th>
                 <td headers="hDateSettingsDisplayPattern hDateSettingsValue">#dateTitle#</td>
-                <td headers="hDateSettingsDisplayPattern hDateSettingsDescription">Muster zur Anzeige von Instanzen dieser Entität</td>
+                <td headers="hDateSettingsDisplayPattern hDateSettingsDescription">Muster zur Anzeige von Instanzen dieser EntitÃ¤t</td>
             </tr>
             <tr>
                 <th id="hDateSettingsIdentifierStrategy" scope="row" headers="hDateSettingsName">ID-Strategie</th>
@@ -126,9 +126,9 @@
                 <td headers="hDateSettingsIdentifierStrategy hDateSettingsDescription">Ob und welche Strategie zur Generierung von IDs angewendet wird</td>
             </tr>
             <tr>
-                <th id="hDateSettingsChangeTrackingPolicy" scope="row" headers="hDateSettingsName">Methode zur Erkennung von Änderungen</th>
-                <td headers="hDateSettingsChangeTrackingPolicy hDateSettingsValue">DEFERRED_IMPLICIT &ndash; Änderungen werden durch Vergleich der Eigenschaften während des Commits ermittelt.</td>
-                <td headers="hDateSettingsChangeTrackingPolicy hDateSettingsDescription">Wie die Erkennung von Änderungen durchgeführt wird</td>
+                <th id="hDateSettingsChangeTrackingPolicy" scope="row" headers="hDateSettingsName">Methode zur Erkennung von Ã„nderungen</th>
+                <td headers="hDateSettingsChangeTrackingPolicy hDateSettingsValue">DEFERRED_IMPLICIT &ndash; Ã„nderungen werden durch Vergleich der Eigenschaften wÃ¤hrend des Commits ermittelt.</td>
+                <td headers="hDateSettingsChangeTrackingPolicy hDateSettingsDescription">Wie die Erkennung von Ã„nderungen durchgefÃ¼hrt wird</td>
             </tr>
             <tr>
                 <th id="hDateSettingsLockType" scope="row" headers="hDateSettingsName">Sperrstrategie</th>
@@ -139,7 +139,7 @@
                 <th id="hDateSettingsReadOnly" scope="row" headers="hDateSettingsName">Nur Lesen</th>
                 <td headers="hDateSettingsReadOnly hDateSettingsValue" class="text-center"><i class="fa fa-times"></i>
                 </td>
-                <td headers="hDateSettingsReadOnly hDateSettingsDescription">Ob diese Entität nur gelesen werden darf oder nicht. Falls ja, ist das Bearbeiten nicht möglich.</td>
+                <td headers="hDateSettingsReadOnly hDateSettingsDescription">Ob diese EntitÃ¤t nur gelesen werden darf oder nicht. Falls ja, ist das Bearbeiten nicht mÃ¶glich.</td>
             </tr>
         </tbody>
     </table>
@@ -163,7 +163,7 @@
                 <th id="hEntityDateFieldMandatory" scope="col">Pflicht</th>
                 <th id="hEntityDateFieldDefault" scope="col">Standardwert</th>
                 <th id="hEntityDateFieldDisplayType" scope="col">Anzeige</th>
-                <th id="hEntityDateFieldConstraints" scope="col">Beschränkungen</th>
+                <th id="hEntityDateFieldConstraints" scope="col">BeschrÃ¤nkungen</th>
                 <th id="hEntityDateFieldRemarks" scope="col">Anmerkungen</th>
             </tr>
         </thead>
@@ -176,13 +176,13 @@
                 <td headers="hEntityDateFieldId hEntityDateFieldDisplayType">ALL</td>
                 <td headers="hEntityDateFieldId hEntityDateFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 9.</li>
+                        <li>Hat eine LÃ¤nge von 9.</li>
                     </ul>
                 </td>
                 <td headers="hEntityDateFieldId hEntityDateFieldRemarks">
                     <ul>
                         <li>Dieses Feld ist eindeutig und erlaubt keine Null-Werte.</li>
-                        <li>Fungiert als Primärschlüssel.</li>
+                        <li>Fungiert als PrimÃ¤rschlÃ¼ssel.</li>
                     </ul>
                 </td>
             </tr>
@@ -194,15 +194,15 @@
                 <td headers="hEntityDateFieldWorkflowState hEntityDateFieldDisplayType">ALL</td>
                 <td headers="hEntityDateFieldWorkflowState hEntityDateFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 20 Zeichen.</li>
+                        <li>Hat eine LÃ¤nge von 20 Zeichen.</li>
                     </ul>
                 </td>
                 <td headers="hEntityDateFieldWorkflowState hEntityDateFieldRemarks">
                     <ul>
                         <li>the current workflow state </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt keine Null-Werte.</li>
-                        <li>Die Liste wird durch eine einwertige Dropdownliste repräsentiert.</li>
-                        <li>Verfügbare Einträge: <ul><li>Initial (initial)</li><li>Deferred (deferred)</li><li>Waiting (waiting)</li><li>Approved (approved)</li><li>Suspended (suspended)</li><li>Archived (archived)</li><li>Trashed (trashed)</li><li>Deleted (deleted)</li></ul></li>
+                        <li>Die Liste wird durch eine einwertige Dropdownliste reprÃ¤sentiert.</li>
+                        <li>VerfÃ¼gbare EintrÃ¤ge: <ul><li>Initial (initial)</li><li>Deferred (deferred)</li><li>Waiting (waiting)</li><li>Approved (approved)</li><li>Suspended (suspended)</li><li>Archived (archived)</li><li>Trashed (trashed)</li><li>Deleted (deleted)</li></ul></li>
                     </ul>
                 </td>
             </tr>
@@ -214,11 +214,12 @@
                 <td headers="hEntityDateFieldDateTitle hEntityDateFieldDisplayType">ALL</td>
                 <td headers="hEntityDateFieldDateTitle hEntityDateFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 255 Zeichen.</li>
+                        <li>Hat eine LÃ¤nge von 255 Zeichen.</li>
                     </ul>
                 </td>
                 <td headers="hEntityDateFieldDateTitle hEntityDateFieldRemarks">
                     <ul>
+                        <li>The title will be the identifier for the date </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt keine Null-Werte.</li>
                     </ul>
                 </td>
@@ -231,7 +232,7 @@
                 <td headers="hEntityDateFieldDateDescription hEntityDateFieldDisplayType">ALL</td>
                 <td headers="hEntityDateFieldDateDescription hEntityDateFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 20000 Zeichen.</li>
+                        <li>Hat eine LÃ¤nge von 20000 Zeichen.</li>
                     </ul>
                 </td>
                 <td headers="hEntityDateFieldDateDescription hEntityDateFieldRemarks">
@@ -251,6 +252,7 @@
                 </td>
                 <td headers="hEntityDateFieldAllDay hEntityDateFieldRemarks">
                     <ul>
+                        <li>if allDay is true the date has no begin and end. Only single day dates are possible. </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt keine Null-Werte.</li>
                     </ul>
                 </td>
@@ -267,6 +269,7 @@
                 </td>
                 <td headers="hEntityDateFieldAllDayDate hEntityDateFieldRemarks">
                     <ul>
+                        <li>complete day </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt keine Null-Werte.</li>
                     </ul>
                 </td>
@@ -283,6 +286,7 @@
                 </td>
                 <td headers="hEntityDateFieldStartDate hEntityDateFieldRemarks">
                     <ul>
+                        <li>Begin of the date </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt keine Null-Werte.</li>
                         <li>Agiert als Startdatum.</li>
                     </ul>
@@ -300,6 +304,7 @@
                 </td>
                 <td headers="hEntityDateFieldEndDate hEntityDateFieldRemarks">
                     <ul>
+                        <li>end of the date </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt keine Null-Werte.</li>
                         <li>Agiert als Enddatum.</li>
                     </ul>
@@ -313,15 +318,16 @@
                 <td headers="hEntityDateFieldDateImage hEntityDateFieldDisplayType">ALL</td>
                 <td headers="hEntityDateFieldDateImage hEntityDateFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 255 Zeichen.</li>
+                        <li>Hat eine LÃ¤nge von 255 Zeichen.</li>
                         <li>Die erlaubten Dateierweiterungen sind "gif, jpeg, jpg, png".</li>
                         <li>Die erlaubten MIME-Typen sind "image/*".</li>
                     </ul>
                 </td>
                 <td headers="hEntityDateFieldDateImage hEntityDateFieldRemarks">
                     <ul>
+                        <li>you can upload one image </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt Null-Werte.</li>
-                        <li>Die hochgeladenen Dateien werden im Unterordner "dateimage" gespeichert und behalten ihren originalen Dateinamen, der bei Bedarf um einen Zähler erweitert wird..</li>
+                        <li>Die hochgeladenen Dateien werden im Unterordner "dateimage" gespeichert und behalten ihren originalen Dateinamen, der bei Bedarf um einen ZÃ¤hler erweitert wird..</li>
                     </ul>
                 </td>
             </tr>
@@ -333,7 +339,7 @@
                 <td headers="hEntityDateFieldDateUrl hEntityDateFieldDisplayType">ALL</td>
                 <td headers="hEntityDateFieldDateUrl hEntityDateFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 255 Zeichen.</li>
+                        <li>Hat eine LÃ¤nge von 255 Zeichen.</li>
                     </ul>
                 </td>
                 <td headers="hEntityDateFieldDateUrl hEntityDateFieldRemarks">
@@ -357,7 +363,7 @@
             <tr>
                 <th id="hDateIndexName" scope="col">Name</th>
                 <th id="hDateIndexType" scope="col">Typ</th>
-                <th id="hDateIndexSize" scope="col">Größe</th>
+                <th id="hDateIndexSize" scope="col">GrÃ¶ÃŸe</th>
                 <th id="hDateIndexDescription" scope="col">Beschreibung</th>
             </tr>
         </thead>
@@ -427,30 +433,30 @@
                 <td headers="hDateWorkflowType hDateWorkflowDescription">STANDARD &ndash; einfache Freigabe.</td>
             </tr>
             <tr>
-                <th id="hDateWorkflowStates" scope="row" headers="hDateWorkflowName">Zustände</th>
+                <th id="hDateWorkflowStates" scope="row" headers="hDateWorkflowName">ZustÃ¤nde</th>
                 <td headers="hDateWorkflowStates hDateWorkflowDescription">
                     <ul>
                         <li><strong>Initial:</strong> Inhalt wurde soeben erstellt und noch nicht persistiert.</li>
-                        <li><strong>Zurückgestellt:</strong> Inhalt wurde noch nicht eingereicht oder wartete und wurde zurückgewiesen. Erlaubt es Benutzern, ihre Einreichungen zu verwalten, ansonsten würden zurückgewiesene Inhalte gelöscht.</li>
+                        <li><strong>ZurÃ¼ckgestellt:</strong> Inhalt wurde noch nicht eingereicht oder wartete und wurde zurÃ¼ckgewiesen. Erlaubt es Benutzern, ihre Einreichungen zu verwalten, ansonsten wÃ¼rden zurÃ¼ckgewiesene Inhalte gelÃ¶scht.</li>
                         <li><strong>Wartend:</strong> Inhalt wurde eingereicht und wartet auf Freigabe.</li>
-                        <li><strong>Freigegeben:</strong> Inhalt wurde freigegeben und ist online verfügbar.</li>
-                        <li><strong>Ausgesetzt:</strong> Inhalt wurde freigegeben, aber übergangsweise offline.</li>
+                        <li><strong>Freigegeben:</strong> Inhalt wurde freigegeben und ist online verfÃ¼gbar.</li>
+                        <li><strong>Ausgesetzt:</strong> Inhalt wurde freigegeben, aber Ã¼bergangsweise offline.</li>
                         <li><strong>Archiviert:</strong> Inhalt hat sein Ende erreicht und wurde archiviert.</li>
-                        <li><strong>Gelöscht:</strong> Inhalt wurde aus der Datenbank gelöscht.</li>
+                        <li><strong>GelÃ¶scht:</strong> Inhalt wurde aus der Datenbank gelÃ¶scht.</li>
                     </ul>
                 </td>
             </tr>
             <tr>
-                <th id="hDateWorkflowOwnerPermission" scope="row" headers="hDateWorkflowName">Benutzer können ihre eigenen Daten verwalten und bearbeiten</th>
+                <th id="hDateWorkflowOwnerPermission" scope="row" headers="hDateWorkflowName">Benutzer kÃ¶nnen ihre eigenen Daten verwalten und bearbeiten</th>
                 <td headers="hDateWorkflowOwnerPermission hDateWorkflowDescription" class="text-center"><i class="fa fa-check"></i>
                 </td>
             </tr>
             <tr>
-                <th id="hDateWorkflowAccountDeletionCreator" scope="row" headers="hDateWorkflowName">Wenn Ersteller gelöscht wird</th>
+                <th id="hDateWorkflowAccountDeletionCreator" scope="row" headers="hDateWorkflowName">Wenn Ersteller gelÃ¶scht wird</th>
                 <td headers="hDateWorkflowAccountDeletionCreator hDateWorkflowDescription">wird als Nutzer "Admin" zugewiesen.</td>
             </tr>
             <tr>
-                <th id="hDateWorkflowAccountDeletionLastEditor" scope="row" headers="hDateWorkflowName">Wenn letzter Bearbeiter gelöscht wird</th>
+                <th id="hDateWorkflowAccountDeletionLastEditor" scope="row" headers="hDateWorkflowName">Wenn letzter Bearbeiter gelÃ¶scht wird</th>
                 <td headers="hDateWorkflowAccountDeletionLastEditor hDateWorkflowDescription">wird als Nutzer "Admin" zugewiesen.</td>
             </tr>
         </tbody>
@@ -513,10 +519,10 @@
                 </td>
             </tr>
             <tr>
-                <th id="hDateBehaviourFormAwareHookProvider" scope="row" headers="hDateBehaviourName1">Anbieter für Formular-Hooks</th>
-                <td headers="hDateBehaviourFormAwareHookProvider hDateBehaviourValue1" class="text-center">DISABLED &ndash; kein Hook-Anbieter verfügbar</td>
-                <th id="hDateBehaviourUiHooksProvider" scope="row" headers="hDateBehaviourName2">Anbieter für UI-Hooks</th>
-                <td headers="hDateBehaviourUiHooksProvider hDateBehaviourValue2" class="text-center">ENABLED &ndash; Hook-Anbieter verfügbar</td>
+                <th id="hDateBehaviourFormAwareHookProvider" scope="row" headers="hDateBehaviourName1">Anbieter fÃ¼r Formular-Hooks</th>
+                <td headers="hDateBehaviourFormAwareHookProvider hDateBehaviourValue1" class="text-center">DISABLED &ndash; kein Hook-Anbieter verfÃ¼gbar</td>
+                <th id="hDateBehaviourUiHooksProvider" scope="row" headers="hDateBehaviourName2">Anbieter fÃ¼r UI-Hooks</th>
+                <td headers="hDateBehaviourUiHooksProvider hDateBehaviourValue2" class="text-center">ENABLED &ndash; Hook-Anbieter verfÃ¼gbar</td>
             </tr>
         </tbody>
     </table>
@@ -546,7 +552,7 @@
                 <th id="hVariablesModerationFieldMandatory" scope="col">Pflicht</th>
                 <th id="hVariablesModerationFieldDefault" scope="col">Standardwert</th>
                 <th id="hVariablesModerationFieldDisplayType" scope="col">Anzeige</th>
-                <th id="hVariablesModerationFieldConstraints" scope="col">Beschränkungen</th>
+                <th id="hVariablesModerationFieldConstraints" scope="col">BeschrÃ¤nkungen</th>
                 <th id="hVariablesModerationFieldRemarks" scope="col">Anmerkungen</th>
             </tr>
         </thead>
@@ -559,7 +565,7 @@
                 <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldDisplayType">ALL</td>
                 <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesModerationFieldModerationGroupForDates hVariablesModerationFieldRemarks">
@@ -596,7 +602,7 @@
                 <th id="hVariablesListViewsFieldMandatory" scope="col">Pflicht</th>
                 <th id="hVariablesListViewsFieldDefault" scope="col">Standardwert</th>
                 <th id="hVariablesListViewsFieldDisplayType" scope="col">Anzeige</th>
-                <th id="hVariablesListViewsFieldConstraints" scope="col">Beschränkungen</th>
+                <th id="hVariablesListViewsFieldConstraints" scope="col">BeschrÃ¤nkungen</th>
                 <th id="hVariablesListViewsFieldRemarks" scope="col">Anmerkungen</th>
             </tr>
         </thead>
@@ -609,7 +615,7 @@
                 <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldDisplayType">ALL</td>
                 <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesListViewsFieldDateEntriesPerPage hVariablesListViewsFieldRemarks">
@@ -663,7 +669,7 @@
                 <th id="hVariablesImagesFieldMandatory" scope="col">Pflicht</th>
                 <th id="hVariablesImagesFieldDefault" scope="col">Standardwert</th>
                 <th id="hVariablesImagesFieldDisplayType" scope="col">Anzeige</th>
-                <th id="hVariablesImagesFieldConstraints" scope="col">Beschränkungen</th>
+                <th id="hVariablesImagesFieldConstraints" scope="col">BeschrÃ¤nkungen</th>
                 <th id="hVariablesImagesFieldRemarks" scope="col">Anmerkungen</th>
             </tr>
         </thead>
@@ -693,7 +699,7 @@
                 <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldShrinkWidthDateDateImage hVariablesImagesFieldRemarks">
@@ -711,7 +717,7 @@
                 <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldShrinkHeightDateDateImage hVariablesImagesFieldRemarks">
@@ -729,15 +735,15 @@
                 <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 255 Zeichen.</li>
+                        <li>Hat eine LÃ¤nge von 255 Zeichen.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldThumbnailModeDateDateImage hVariablesImagesFieldRemarks">
                     <ul>
                         <li>Thumbnail mode (inset or outbound). </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt keine Null-Werte.</li>
-                        <li>Die Liste wird durch eine einwertige Dropdownliste repräsentiert.</li>
-                        <li>Verfügbare Einträge: <ul><li>Inset (inset)</li><li>Outbound (outbound)</li></ul></li>
+                        <li>Die Liste wird durch eine einwertige Dropdownliste reprÃ¤sentiert.</li>
+                        <li>VerfÃ¼gbare EintrÃ¤ge: <ul><li>Inset (inset)</li><li>Outbound (outbound)</li></ul></li>
                     </ul>
                 </td>
             </tr>
@@ -749,7 +755,7 @@
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageView hVariablesImagesFieldRemarks">
@@ -767,7 +773,7 @@
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageView hVariablesImagesFieldRemarks">
@@ -785,7 +791,7 @@
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageDisplay hVariablesImagesFieldRemarks">
@@ -803,7 +809,7 @@
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageDisplay hVariablesImagesFieldRemarks">
@@ -821,7 +827,7 @@
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldThumbnailWidthDateDateImageEdit hVariablesImagesFieldRemarks">
@@ -839,7 +845,7 @@
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldDisplayType">ALL</td>
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 11.</li>
+                        <li>Hat eine LÃ¤nge von 11.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesImagesFieldThumbnailHeightDateDateImageEdit hVariablesImagesFieldRemarks">
@@ -876,7 +882,7 @@
                 <th id="hVariablesIntegrationFieldMandatory" scope="col">Pflicht</th>
                 <th id="hVariablesIntegrationFieldDefault" scope="col">Standardwert</th>
                 <th id="hVariablesIntegrationFieldDisplayType" scope="col">Anzeige</th>
-                <th id="hVariablesIntegrationFieldConstraints" scope="col">Beschränkungen</th>
+                <th id="hVariablesIntegrationFieldConstraints" scope="col">BeschrÃ¤nkungen</th>
                 <th id="hVariablesIntegrationFieldRemarks" scope="col">Anmerkungen</th>
             </tr>
         </thead>
@@ -889,7 +895,7 @@
                 <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldDisplayType">ALL</td>
                 <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldConstraints">
                     <ul>
-                        <li>Hat eine Länge von 255 Zeichen.</li>
+                        <li>Hat eine LÃ¤nge von 255 Zeichen.</li>
                     </ul>
                 </td>
                 <td headers="hVariablesIntegrationFieldEnabledFinderTypes hVariablesIntegrationFieldRemarks">
@@ -897,7 +903,7 @@
                         <li>Which sections are supported in the Finder component (used by Scribite plug-ins). </li>
                         <li>Dieses Feld ist nicht eindeutig und erlaubt keine Null-Werte.</li>
                         <li>Die Liste wird durch eine mehrwertige Dropdownliste</li>
-                        <li>Verfügbare Einträge: <ul><li>Date (date)</li></ul></li>
+                        <li>VerfÃ¼gbare EintrÃ¤ge: <ul><li>Date (date)</li></ul></li>
                     </ul>
                 </td>
             </tr>
@@ -926,7 +932,7 @@
                 <td headers="hSettingName1">Systemmodul</td>
                 <td headers="hSettingValue1" class="text-center"><i class="fa fa-times"></i>
                 </td>
-                <td headers="hSettingName2">Anzahl Beispielsätze</td>
+                <td headers="hSettingName2">Anzahl BeispielsÃ¤tze</td>
                 <td headers="hSettingValue2" class="text-center">0</td>
             </tr>
             <tr>
@@ -938,23 +944,23 @@
                 </td>
             </tr>
             <tr>
-                <td headers="hSettingName1">Block für Listenansichten</td>
+                <td headers="hSettingName1">Block fÃ¼r Listenansichten</td>
                 <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
                 </td>
-                <td headers="hSettingName2">Block für Detailansichten</td>
+                <td headers="hSettingName2">Block fÃ¼r Detailansichten</td>
                 <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
                 </td>
             </tr>
             <tr>
-                <td headers="hSettingName1">ContentType für Listenansichten</td>
+                <td headers="hSettingName1">ContentType fÃ¼r Listenansichten</td>
                 <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
                 </td>
-                <td headers="hSettingName2">ContentType für Detailansichten</td>
+                <td headers="hSettingName2">ContentType fÃ¼r Detailansichten</td>
                 <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
                 </td>
             </tr>
             <tr>
-                <td headers="hSettingName1">Support für Mailz</td>
+                <td headers="hSettingName1">Support fÃ¼r Mailz</td>
                 <td headers="hSettingValue1" class="text-center"><i class="fa fa-times"></i>
                 </td>
                 <td headers="hSettingName2">Newsletter Plugin</td>
@@ -970,7 +976,7 @@
                 </td>
             </tr>
             <tr>
-                <td headers="hSettingName1">Support für wartende Inhalte</td>
+                <td headers="hSettingName1">Support fÃ¼r wartende Inhalte</td>
                 <td headers="hSettingValue1" class="text-center"><i class="fa fa-check"></i>
                 </td>
                 <td headers="hSettingName2">MultiHook Needles</td>
@@ -987,14 +993,14 @@
             </tr>
             <tr>
                 <td headers="hSettingName1">Authentifizierungsmethode</td>
-                <td headers="hSettingValue1" class="text-center">NONE &ndash; keine Authentifizierungsmethode verfügbar.</td>
-                <td headers="hSettingName2">Support für Tagging</td>
+                <td headers="hSettingValue1" class="text-center">NONE &ndash; keine Authentifizierungsmethode verfÃ¼gbar.</td>
+                <td headers="hSettingName2">Support fÃ¼r Tagging</td>
                 <td headers="hSettingValue2" class="text-center"><i class="fa fa-times"></i>
                 </td>
             </tr>
             <tr>
-                <td headers="hSettingName1">Anbieter für Filter-Hooks</td>
-                <td headers="hSettingValue1" class="text-center">DISABLED &ndash; kein Hook-Anbieter verfügbar</td>
+                <td headers="hSettingName1">Anbieter fÃ¼r Filter-Hooks</td>
+                <td headers="hSettingValue1" class="text-center">DISABLED &ndash; kein Hook-Anbieter verfÃ¼gbar</td>
                 <td headers="hSettingName2">Separate Admin-Templates</td>
                 <td headers="hSettingValue2" class="text-center"><i class="fa fa-check"></i>
                 </td>
@@ -1027,7 +1033,7 @@
                 <td headers="hSettingName1">ICS-Templates</td>
                 <td headers="hSettingValue1" class="text-center"><i class="fa fa-times"></i>
                 </td>
-                <td headers="hSettingName2">PDF-Unterstützung</td>
+                <td headers="hSettingName2">PDF-UnterstÃ¼tzung</td>
                 <td headers="hSettingValue2" class="text-center"><i class="fa fa-times"></i>
                 </td>
             </tr>

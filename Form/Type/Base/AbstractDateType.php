@@ -132,6 +132,11 @@ abstract class AbstractDateType extends AbstractType
         
         $builder->add('dateTitle', TextType::class, [
             'label' => $this->__('Date title') . ':',
+            'label_attr' => [
+                'class' => 'tooltips',
+                'title' => $this->__('The title will be the identifier for the date')
+            ],
+            'help' => $this->__('The title will be the identifier for the date'),
             'empty_data' => '',
             'attr' => [
                 'maxlength' => 255,
@@ -143,7 +148,11 @@ abstract class AbstractDateType extends AbstractType
         
         $builder->add('dateDescription', TextareaType::class, [
             'label' => $this->__('Date description') . ':',
-            'help' => $this->__f('Note: this value must not exceed %amount% characters.', ['%amount%' => 20000]),
+            'label_attr' => [
+                'class' => 'tooltips',
+                'title' => $this->__('here you can tell a bit about the date')
+            ],
+            'help' => [$this->__('here you can tell a bit about the date'), $this->__f('Note: this value must not exceed %amount% characters.', ['%amount%' => 20000])],
             'empty_data' => '',
             'attr' => [
                 'maxlength' => 20000,
@@ -155,6 +164,11 @@ abstract class AbstractDateType extends AbstractType
         
         $builder->add('allDay', CheckboxType::class, [
             'label' => $this->__('All day') . ':',
+            'label_attr' => [
+                'class' => 'tooltips',
+                'title' => $this->__('if allDay is true the date has no begin and end. Only single day dates are possible.')
+            ],
+            'help' => $this->__('if allDay is true the date has no begin and end. Only single day dates are possible.'),
             'attr' => [
                 'class' => '',
                 'title' => $this->__('all day ?')
@@ -164,6 +178,11 @@ abstract class AbstractDateType extends AbstractType
         
         $builder->add('allDayDate', DateType::class, [
             'label' => $this->__('All day date') . ':',
+            'label_attr' => [
+                'class' => 'tooltips',
+                'title' => $this->__('complete day')
+            ],
+            'help' => $this->__('complete day'),
             'attr' => [
                 'class' => ' validate-daterange-date',
                 'title' => $this->__('Enter the all day date of the date')
@@ -175,6 +194,11 @@ abstract class AbstractDateType extends AbstractType
         
         $builder->add('startDate', DateTimeType::class, [
             'label' => $this->__('Start date') . ':',
+            'label_attr' => [
+                'class' => 'tooltips',
+                'title' => $this->__('Begin of the date')
+            ],
+            'help' => $this->__('Begin of the date'),
             'attr' => [
                 'class' => ' validate-daterange-date',
                 'title' => $this->__('Enter the start date of the date')
@@ -188,6 +212,11 @@ abstract class AbstractDateType extends AbstractType
         
         $builder->add('endDate', DateTimeType::class, [
             'label' => $this->__('End date') . ':',
+            'label_attr' => [
+                'class' => 'tooltips',
+                'title' => $this->__('end of the date')
+            ],
+            'help' => $this->__('end of the date'),
             'attr' => [
                 'class' => ' validate-daterange-date',
                 'title' => $this->__('Enter the end date of the date')
@@ -201,6 +230,11 @@ abstract class AbstractDateType extends AbstractType
         
         $builder->add('dateImage', UploadType::class, [
             'label' => $this->__('Date image') . ':',
+            'label_attr' => [
+                'class' => 'tooltips',
+                'title' => $this->__('you can upload one image')
+            ],
+            'help' => $this->__('you can upload one image'),
             'attr' => [
                 'class' => ' validate-upload',
                 'title' => $this->__('Enter the date image of the date')
@@ -213,6 +247,11 @@ abstract class AbstractDateType extends AbstractType
         
         $builder->add('dateUrl', UrlType::class, [
             'label' => $this->__('Date url') . ':',
+            'label_attr' => [
+                'class' => 'tooltips',
+                'title' => $this->__('you can add a date URL')
+            ],
+            'help' => $this->__('you can add a date URL'),
             'empty_data' => '',
             'attr' => [
                 'maxlength' => 255,

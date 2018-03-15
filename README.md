@@ -1,6 +1,6 @@
 # RKAlmanacModule 0.1.0
 
-a collection of dates
+a collection of dates with archive
 
 This module is intended for being used with Zikula 1.5.5 and later.
 

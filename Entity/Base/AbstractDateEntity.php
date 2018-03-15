@@ -64,6 +64,8 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $workflowState = 'initial';
     
     /**
+     * The title will be the identifier for the date
+     *
      * @ORM\Column(length=255)
      * @Assert\NotBlank()
      * @Assert\Length(min="0", max="255")
@@ -72,6 +74,8 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $dateTitle = '';
     
     /**
+     * here you can tell a bit about the date
+     *
      * @ORM\Column(type="text", length=20000)
      * @Assert\NotNull()
      * @Assert\Length(min="0", max="20000")
@@ -80,6 +84,8 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $dateDescription = '';
     
     /**
+     * if allDay is true the date has no begin and end. Only single day dates are possible.
+     *
      * @ORM\Column(type="boolean")
      * @Assert\NotNull()
      * @Assert\Type(type="bool")
@@ -88,6 +94,8 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $allDay = true;
     
     /**
+     * complete day
+     *
      * @ORM\Column(type="date")
      * @Assert\NotNull()
      * @Assert\Date()
@@ -96,6 +104,8 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $allDayDate;
     
     /**
+     * Begin of the date
+     *
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank()
      * @Assert\DateTime()
@@ -104,6 +114,8 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $startDate;
     
     /**
+     * end of the date
+     *
      * @ORM\Column(type="datetime")
      * @Assert\NotBlank()
      * @Assert\DateTime()
@@ -122,6 +134,8 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $dateImageMeta = [];
     
     /**
+     * you can upload one image
+     *
      * @ORM\Column(length=255, nullable=true)
      * @Assert\Length(min="0", max="255")
      * @Assert\File(
@@ -142,6 +156,8 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $dateImageUrl = '';
     
     /**
+     * you can add a date URL
+     *
      * @ORM\Column(length=255)
      * @Assert\NotNull()
      * @Assert\Length(min="0", max="255")
