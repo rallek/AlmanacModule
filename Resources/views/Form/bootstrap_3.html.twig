@@ -8,13 +8,6 @@
     {%- endif -%}
 {%- endblock -%}
 
-{%- block date_widget -%}
-    {{- parent() -}}
-    {%- if not required -%}
-        <em class="help-block small"><a id="{{ id }}ResetVal" href="javascript:void(0);" class="hidden">{{ __('Reset to empty value') }}</a></em>
-    {%- endif -%}
-{%- endblock -%}
-
 {% block rkalmanacmodule_field_upload_label %}{% endblock %}
 {% block rkalmanacmodule_field_upload_row %}
     {% spaceless %}

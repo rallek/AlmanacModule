@@ -141,7 +141,6 @@ abstract class AbstractCollectionFilterHelper
         $parameters['catIdList'] = $this->categoryHelper->retrieveCategoriesFromRequest('date', 'GET');
         $parameters['workflowState'] = $this->request->query->get('workflowState', '');
         $parameters['q'] = $this->request->query->get('q', '');
-        $parameters['allDay'] = $this->request->query->get('allDay', '');
     
         return $parameters;
     }
@@ -184,14 +183,6 @@ abstract class AbstractCollectionFilterHelper
                     $qb = $this->addSearchFilter('date', $qb, $v);
                 }
                 continue;
-            }
-            if (in_array($k, ['allDay'])) {
-                // boolean filter
-                if ($v == 'no') {
-                    $qb->andWhere('tbl.' . $k . ' = 0');
-                } elseif ($v == 'yes' || $v == '1') {
-                    $qb->andWhere('tbl.' . $k . ' = 1');
-                }
             }
     
             if (is_array($v)) {
@@ -306,8 +297,6 @@ abstract class AbstractCollectionFilterHelper
             $parameters['searchDateTitle'] = '%' . $fragment . '%';
             $filters[] = 'tbl.dateDescription LIKE :searchDateDescription';
             $parameters['searchDateDescription'] = '%' . $fragment . '%';
-            $filters[] = 'tbl.allDayDate = :searchAllDayDate';
-            $parameters['searchAllDayDate'] = $fragment;
             $filters[] = 'tbl.startDate = :searchStartDate';
             $parameters['searchStartDate'] = $fragment;
             $filters[] = 'tbl.endDate = :searchEndDate';

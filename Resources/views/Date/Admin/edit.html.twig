@@ -16,8 +16,6 @@
             <legend>{{ __('Content') }}</legend>
             {{ form_row(form.dateTitle) }}
             {{ form_row(form.dateDescription) }}
-            {{ form_row(form.allDay) }}
-            {{ form_row(form.allDayDate) }}
             {{ form_row(form.startDate) }}
             {{ form_row(form.endDate) }}
             {{ form_row(form.dateImage) }}
@@ -92,7 +90,6 @@
             ( function($) {
                 $(document).ready(function() {
                     rKAlmanacInitEditForm('{{ mode }}', '{% if mode != 'create' %}{{ date.id }}{% endif %}');
-                    rKAlmanacInitDateField('rkalmanacmodule_date_allDayDate');
                     rKAlmanacInitUploadField('rkalmanacmodule_date_dateImage_dateImage');
                     {% if form.moderationSpecificCreator is defined %}
                         initUserLiveSearch('rkalmanacmodule_date_moderationSpecificCreator');

@@ -24,8 +24,6 @@
                 {% endif %}
                 <col id="cDateTitle" />
                 <col id="cDateDescription" />
-                <col id="cAllDay" />
-                <col id="cAllDayDate" />
                 <col id="cStartDate" />
                 <col id="cEndDate" />
                 <col id="cDateImage" />
@@ -49,12 +47,6 @@
                 </th>
                 <th id="hDateDescription" scope="col" class="text-left">
                     <a href="{{ sort.dateDescription.url }}" title="{{ __f('Sort by %s', {'%s': 'date description'}) }}" class="{{ sort.dateDescription.class }}">{{ __('Date description') }}</a>
-                </th>
-                <th id="hAllDay" scope="col" class="text-center">
-                    <a href="{{ sort.allDay.url }}" title="{{ __f('Sort by %s', {'%s': 'all day'}) }}" class="{{ sort.allDay.class }}">{{ __('All day') }}</a>
-                </th>
-                <th id="hAllDayDate" scope="col" class="text-left">
-                    <a href="{{ sort.allDayDate.url }}" title="{{ __f('Sort by %s', {'%s': 'all day date'}) }}" class="{{ sort.allDayDate.class }}">{{ __('All day date') }}</a>
                 </th>
                 <th id="hStartDate" scope="col" class="text-left">
                     <a href="{{ sort.startDate.url }}" title="{{ __f('Sort by %s', {'%s': 'start date'}) }}" class="{{ sort.startDate.class }}">{{ __('Start date') }}</a>
@@ -95,16 +87,6 @@
                 <td headers="hDateDescription" class="text-left">
                     {{ date.dateDescription|striptags|truncate(50) }}
                 </td>
-                <td headers="hAllDay" class="text-center">
-                    {% if date.allDay %}
-                        <i class="fa fa-check" title="{{ __('Yes') }}"></i>
-                    {% else %}
-                        <i class="fa fa-times" title="{{ __('No') }}"></i>
-                    {% endif %}
-                </td>
-                <td headers="hAllDayDate" class="text-left">
-                    {{ date.allDayDate|localizeddate('medium', 'none') }}
-                </td>
                 <td headers="hStartDate" class="text-left">
                     {{ date.startDate|localizeddate('medium', 'short') }}
                 </td>
@@ -131,7 +113,7 @@
             </tr>
         {% else %}
             <tr class="z-{{ routeArea == 'admin' ? 'admin' : 'data' }}tableempty">
-                <td class="text-left" colspan="{% if routeArea == 'admin' %}11{% else %}10{% endif %}">
+                <td class="text-left" colspan="{% if routeArea == 'admin' %}9{% else %}8{% endif %}">
             {{ __('No dates found.') }}
               </td>
             </tr>

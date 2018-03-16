@@ -32,16 +32,6 @@ application "Almanac" targets ZK15 {
                     mandatory false
                     length 20000
                 },
-                boolean "allDay" {
-                    documentation "if allDay is true the date has no begin and end. Only single day dates are possible."
-                    defaultValue "true"
-                    mandatory false
-                },
-                datetime "allDayDate" {
-                    documentation "complete day"
-                    mandatory false
-                    components DATE
-                },
                 datetime "startDate" startDate {
                     documentation "Begin of the date"
                 },

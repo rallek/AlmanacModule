@@ -141,8 +141,6 @@ abstract class AbstractDateController extends AbstractController
             new Column('workflowState'),
             new Column('dateTitle'),
             new Column('dateDescription'),
-            new Column('allDay'),
-            new Column('allDayDate'),
             new Column('startDate'),
             new Column('endDate'),
             new Column('dateImage'),

@@ -87,7 +87,6 @@ abstract class AbstractDateQuickNavType extends AbstractType
         $this->addSearchField($builder, $options);
         $this->addSortingFields($builder, $options);
         $this->addAmountField($builder, $options);
-        $this->addBooleanFields($builder, $options);
         $builder->add('updateview', SubmitType::class, [
             'label' => $this->__('OK'),
             'attr' => [
@@ -190,8 +189,6 @@ abstract class AbstractDateQuickNavType extends AbstractType
                     $this->__('Workflow state') => 'workflowState',
                     $this->__('Date title') => 'dateTitle',
                     $this->__('Date description') => 'dateDescription',
-                    $this->__('All day') => 'allDay',
-                    $this->__('All day date') => 'allDayDate',
                     $this->__('Start date') => 'startDate',
                     $this->__('End date') => 'endDate',
                     $this->__('Date image') => 'dateImage',
@@ -248,29 +245,6 @@ abstract class AbstractDateQuickNavType extends AbstractType
             'choices_as_values' => true,
             'required' => false,
             'expanded' => false
-        ]);
-    }
-
-    /**
-     * Adds boolean fields.
-     *
-     * @param FormBuilderInterface $builder The form builder
-     * @param array                $options The options
-     */
-    public function addBooleanFields(FormBuilderInterface $builder, array $options = [])
-    {
-        $builder->add('allDay', ChoiceType::class, [
-            'label' => $this->__('All day'),
-            'attr' => [
-                'class' => 'input-sm'
-            ],
-            'required' => false,
-            'placeholder' => $this->__('All'),
-            'choices' => [
-                $this->__('No') => 'no',
-                $this->__('Yes') => 'yes'
-            ],
-            'choices_as_values' => true
         ]);
     }
 

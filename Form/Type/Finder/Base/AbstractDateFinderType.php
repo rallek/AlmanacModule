@@ -188,8 +188,6 @@ abstract class AbstractDateFinderType extends AbstractType
                     $this->__('Workflow state') => 'workflowState',
                     $this->__('Date title') => 'dateTitle',
                     $this->__('Date description') => 'dateDescription',
-                    $this->__('All day') => 'allDay',
-                    $this->__('All day date') => 'allDayDate',
                     $this->__('Start date') => 'startDate',
                     $this->__('End date') => 'endDate',
                     $this->__('Date image') => 'dateImage',

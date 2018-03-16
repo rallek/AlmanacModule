@@ -29,19 +29,6 @@
             <dt>{{ __('Date description') }}</dt>
             <dd>{{ date.dateDescription|safeHtml }}</dd>
         {% endif %}
-        {% if date.allDay is not empty %}
-            <dt>{{ __('All day') }}</dt>
-            <dd>{% if date.allDay %}
-                <i class="fa fa-check" title="{{ __('Yes') }}"></i>
-            {% else %}
-                <i class="fa fa-times" title="{{ __('No') }}"></i>
-            {% endif %}
-            </dd>
-        {% endif %}
-        {% if date.allDayDate is not empty %}
-            <dt>{{ __('All day date') }}</dt>
-            <dd>{{ date.allDayDate|localizeddate('medium', 'none') }}</dd>
-        {% endif %}
         {% if date.startDate is not empty %}
             <dt>{{ __('Start date') }}</dt>
             <dd>{{ date.startDate|localizeddate('medium', 'short') }}</dd>

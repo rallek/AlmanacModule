@@ -13,10 +13,8 @@
 namespace RK\AlmanacModule\Form\Type\Base;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -160,36 +158,6 @@ abstract class AbstractDateType extends AbstractType
                 'title' => $this->__('Enter the date description of the date')
             ],
             'required' => false,
-        ]);
-        
-        $builder->add('allDay', CheckboxType::class, [
-            'label' => $this->__('All day') . ':',
-            'label_attr' => [
-                'class' => 'tooltips',
-                'title' => $this->__('if allDay is true the date has no begin and end. Only single day dates are possible.')
-            ],
-            'help' => $this->__('if allDay is true the date has no begin and end. Only single day dates are possible.'),
-            'attr' => [
-                'class' => '',
-                'title' => $this->__('all day ?')
-            ],
-            'required' => false,
-        ]);
-        
-        $builder->add('allDayDate', DateType::class, [
-            'label' => $this->__('All day date') . ':',
-            'label_attr' => [
-                'class' => 'tooltips',
-                'title' => $this->__('complete day')
-            ],
-            'help' => $this->__('complete day'),
-            'attr' => [
-                'class' => ' validate-daterange-date',
-                'title' => $this->__('Enter the all day date of the date')
-            ],
-            'required' => false,
-            'empty_data' => date('Y-m-d'),
-            'widget' => 'single_text'
         ]);
         
         $builder->add('startDate', DateTimeType::class, [

@@ -47,8 +47,6 @@
                     <option value="workflowState"{if $sort eq 'workflowState'} selected="selected"{/if}>{gt text='Workflow state'}</option>
                     <option value="dateTitle"{if $sort eq 'dateTitle'} selected="selected"{/if}>{gt text='Date title'}</option>
                     <option value="dateDescription"{if $sort eq 'dateDescription'} selected="selected"{/if}>{gt text='Date description'}</option>
-                    <option value="allDay"{if $sort eq 'allDay'} selected="selected"{/if}>{gt text='All day'}</option>
-                    <option value="allDayDate"{if $sort eq 'allDayDate'} selected="selected"{/if}>{gt text='All day date'}</option>
                     <option value="startDate"{if $sort eq 'startDate'} selected="selected"{/if}>{gt text='Start date'}</option>
                     <option value="endDate"{if $sort eq 'endDate'} selected="selected"{/if}>{gt text='End date'}</option>
                     <option value="dateImage"{if $sort eq 'dateImage'} selected="selected"{/if}>{gt text='Date image'}</option>

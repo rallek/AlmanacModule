@@ -84,26 +84,6 @@ abstract class AbstractDateEntity extends EntityAccess
     protected $dateDescription = '';
     
     /**
-     * if allDay is true the date has no begin and end. Only single day dates are possible.
-     *
-     * @ORM\Column(type="boolean")
-     * @Assert\NotNull()
-     * @Assert\Type(type="bool")
-     * @var boolean $allDay
-     */
-    protected $allDay = true;
-    
-    /**
-     * complete day
-     *
-     * @ORM\Column(type="date")
-     * @Assert\NotNull()
-     * @Assert\Date()
-     * @var date $allDayDate
-     */
-    protected $allDayDate;
-    
-    /**
      * Begin of the date
      *
      * @ORM\Column(type="datetime")
@@ -306,64 +286,6 @@ abstract class AbstractDateEntity extends EntityAccess
     {
         if ($this->dateDescription !== $dateDescription) {
             $this->dateDescription = isset($dateDescription) ? $dateDescription : '';
-        }
-    }
-    
-    /**
-     * Returns the all day.
-     *
-     * @return boolean
-     */
-    public function getAllDay()
-    {
-        return $this->allDay;
-    }
-    
-    /**
-     * Sets the all day.
-     *
-     * @param boolean $allDay
-     *
-     * @return void
-     */
-    public function setAllDay($allDay)
-    {
-        if (boolval($this->allDay) !== boolval($allDay)) {
-            $this->allDay = boolval($allDay);
-        }
-    }
-    
-    /**
-     * Returns the all day date.
-     *
-     * @return date
-     */
-    public function getAllDayDate()
-    {
-        return $this->allDayDate;
-    }
-    
-    /**
-     * Sets the all day date.
-     *
-     * @param date $allDayDate
-     *
-     * @return void
-     */
-    public function setAllDayDate($allDayDate)
-    {
-        if ($this->allDayDate !== $allDayDate) {
-            if (!(null == $allDayDate && empty($allDayDate)) && !(is_object($allDayDate) && $allDayDate instanceOf \DateTimeInterface)) {
-                $allDayDate = new \DateTime($allDayDate);
-            }
-            
-            if (null === $allDayDate || empty($allDayDate)) {
-                $allDayDate = new \DateTime();
-            }
-            
-            if ($this->allDayDate != $allDayDate) {
-                $this->allDayDate = $allDayDate;
-            }
         }
     }
     

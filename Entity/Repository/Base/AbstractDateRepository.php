@@ -58,8 +58,6 @@ abstract class AbstractDateRepository extends EntityRepository
             'workflowState',
             'dateTitle',
             'dateDescription',
-            'allDay',
-            'allDayDate',
             'startDate',
             'endDate',
             'dateImage',

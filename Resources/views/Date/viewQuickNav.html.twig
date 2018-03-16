@@ -56,13 +56,6 @@
             {% if pageSizeSelector is defined and pageSizeSelector != true %}
                 </div>
             {% endif %}
-            {% if allDayFilter is defined and allDayFilter != true %}
-                <div class="hidden">
-            {% endif %}
-                {{ form_row(quickNavForm.allDay) }}
-            {% if allDayFilter is defined and allDayFilter != true %}
-                </div>
-            {% endif %}
             {{ form_widget(quickNavForm.updateview) }}
             {% if categoriesEnabled %}
                 {% if categoryFilter is defined and categoryFilter != true %}
