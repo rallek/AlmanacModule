@@ -1,0 +1,1119 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Ralf Köster <ralf@familie-koester.de>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de\n"
+
+msgid "%dateTitle%"
+msgstr "%dateTitle%"
+
+msgid "10"
+msgstr "10"
+
+msgid "100"
+msgstr "100"
+
+msgid "15"
+msgstr "15"
+
+msgid "20"
+msgstr "20"
+
+msgid "30"
+msgstr "30"
+
+msgid "5"
+msgstr "5"
+
+msgid "50"
+msgstr "50"
+
+msgid "A direct feed showing the list of dates"
+msgstr ""
+
+msgid "A user changed his date \"%entity%\"."
+msgstr "Ein Benutzer hat seinen Termin \"%entity%\" geändert."
+
+msgid "Absolute url to the date"
+msgstr "Absolute URL zum Termin"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "Additional remarks"
+msgstr "Ergänzende Bemerkungen"
+
+msgid "Additional remarks:"
+msgstr "Ergänzende Bemerkungen:"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All except approved"
+msgstr "Alle außer freigegebene"
+
+msgid "All except archived"
+msgstr "Alle außer Archivierte"
+
+msgid "All except deferred"
+msgstr "Alle außer zurückgestellte"
+
+msgid "All except suspended"
+msgstr "Alle außer Pausierte"
+
+msgid "All except trashed"
+msgstr "Alle außer im Papierkorb"
+
+msgid "All except waiting"
+msgstr "Alle außer Wartende"
+
+msgid "Allowed file extensions"
+msgstr "Erlaubte Dateiendungen"
+
+msgid "Allowed file size"
+msgstr "Erlaubte Dateigröße"
+
+msgid "Almanac Backend"
+msgstr "Almanach-Backend"
+
+msgid "Amount"
+msgstr "Anzahl"
+
+msgid ""
+"An error occured during creation of the .htaccess file in directory \"%path%"
+"\"."
+msgstr ""
+"Während der Erstellung der .htaccess-Datei im Verzeichnis \"%path%\" ist ein "
+"Fehler aufgetreten."
+
+msgid "Approve"
+msgstr "Freigeben"
+
+msgid "Approved"
+msgstr "Genehmigt"
+
+msgid "Archive"
+msgstr "Archiv"
+
+msgid "Archived"
+msgstr "Archiviert"
+
+msgid "Ascending"
+msgstr "aufwärts"
+
+msgid "Assigned dates"
+msgstr "Zugewiesene Termine"
+
+msgid "Attach %name%"
+msgstr "%name% anhängen"
+
+msgid "Back to paginated view"
+msgstr "Zurück zur Seitenansicht"
+
+msgid "Backend"
+msgstr "Backend"
+
+msgid "Begin of the date"
+msgstr "Beginn des Termines"
+
+msgid "Bytes"
+msgstr "Bytes"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Categories"
+msgstr "Kategorien"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Change selection"
+msgstr "Ändere Auswahl"
+
+msgid "Choose action"
+msgstr "Aktion wählen"
+
+msgid "Choose an option"
+msgstr "Bitte Option wählen"
+
+msgid "Choose the enabled finder types."
+msgstr "Die aktivierten Finter-Typen auswählen."
+
+#, fuzzy
+msgid "Choose the moderation group for dates"
+msgstr "Wählen Sie die Moderationsgruppe für Termine"
+
+msgid "Choose the thumbnail mode."
+msgstr "Thumbnail Modus auswählen."
+
+msgid "Communication"
+msgstr "Kommunikation "
+
+msgid "Configuration"
+msgstr "Konfiguration"
+
+msgid "Confirmation prompt"
+msgstr "Sicherheitsabfrage"
+
+msgid "Content"
+msgstr "Inhalt"
+
+msgid "Content has been approved and is available online."
+msgstr "Inhalt wurde geprüft und ist online verfügbar."
+
+msgid "Content has been approved, but is temporarily offline."
+msgstr "Inhalt wurde geprüft und ist online verfügbar."
+
+#, fuzzy
+msgid "Content has been deleted"
+msgstr "Der Inhalt wurde gelöscht."
+
+msgid ""
+"Content has been marked as deleted, but is still persisted in the database."
+msgstr ""
+"Inhalt wurde als gelöscht gekennzeichnet , ist aber immer noch in der "
+"Datenbank vorhanden."
+
+msgid "Content has been submitted and waits for approval."
+msgstr "Inhalt wurde geprüft und wartet auf Freigabe."
+
+#, fuzzy
+msgid "Content has been updated"
+msgstr "Der Inhalt wurde aktualisiert."
+
+msgid ""
+"Content has not been submitted yet or has been waiting, but was rejected."
+msgstr "Inhalt wurde nicht übermittelt oder freigegeben, er wurde abgelehnt."
+
+msgid "Content has reached the end and became archived."
+msgstr "Inhalt ist abgelaufen und wurde archiviert."
+
+msgid ""
+"Could not inform other persons about your amendments, because the Mailer "
+"module is not available - please contact an administrator about that!"
+msgstr ""
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Create date"
+msgstr "Termin erstellen"
+
+msgid "Create new %name%"
+msgstr "%name% neu erstellen"
+
+msgid "Created by %user"
+msgstr "Erstellt von %user"
+
+msgid "Created by %user on %date"
+msgstr "Erstellt von %user am %date"
+
+msgid "Created on %date"
+msgstr "Erstellt am %date"
+
+msgid "Creation"
+msgstr "Erstellung"
+
+msgid "Creation and update"
+msgstr "Erstellung und Aktualisierung"
+
+msgid "Creation date"
+msgstr "Erstellungsdatum"
+
+msgid "Creator"
+msgstr "Ersteller"
+
+msgid "Current file"
+msgstr "Aktuelle Datei"
+
+msgid "Custom template"
+msgstr "Benutzerdefinierte Vorlage"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Date description"
+msgstr "Beschreibung"
+
+msgid "Date entries per page"
+msgstr "Einträge pro Seite"
+
+#, fuzzy
+msgid "Date filter hooks subscriber"
+msgstr "Datum Filter hooks Abonnent"
+
+msgid "Date form aware subscriber"
+msgstr ""
+
+msgid "Date image"
+msgstr "Bild"
+
+msgid "Date title"
+msgstr "Titel"
+
+msgid "Date ui hooks provider"
+msgstr ""
+
+msgid "Date ui hooks subscriber"
+msgstr ""
+
+msgid "Date url"
+msgstr "Link"
+
+msgid "Dates"
+msgstr "Datum"
+
+msgid "Dates date image"
+msgstr ""
+
+msgid "Dates list"
+msgstr "Liste"
+
+msgid "Dates pending approval"
+msgstr "Genehmigung ausstehend"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Defer"
+msgstr "Zurückstellen"
+
+msgid "Deferred"
+msgstr "Zurückgestellt"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Delete content permanently."
+msgstr "Inhalt dauerhaft löschen."
+
+msgid "Delete date"
+msgstr "Termin löschen"
+
+msgid "Delete existing file"
+msgstr "Vorhandene Datei löschen"
+
+msgid "Delete this date"
+msgstr "Diesen Termin löschen"
+
+msgid "Delete this file ?"
+msgstr "Diese Datei löschen?"
+
+msgid "Deleted"
+msgstr "Gelöscht"
+
+msgid "Descending"
+msgstr "Abwärts"
+
+msgid "Detach %name%"
+msgstr "%name% entfernen"
+
+msgid "Detach this %name%"
+msgstr "Dies %name% entfernen"
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Display list of RKAlmanacModule objects."
+msgstr ""
+
+#, fuzzy
+msgid "Display or link a single RKAlmanacModule object."
+msgstr "Anzeigen oder ein einzelnes RKEventPhotosModule -Objekt verknüpfen."
+
+#, fuzzy
+msgid "Do you really want to delete this date: \"%name%\" ?"
+msgstr "Möchten Sie diesen Benutzer wirklich löschen?"
+
+msgid "Doctrine Exception"
+msgstr "Doctrine Fehler"
+
+msgid "Done! Date created."
+msgstr "Erledigt! Termin erstellt."
+
+msgid "Done! Date deleted."
+msgstr ""
+
+msgid "Done! Date updated."
+msgstr "Erledigt! Termin aktualisiert."
+
+msgid "Done! Item created."
+msgstr "Erledigt! Element erstellt."
+
+msgid "Done! Item deleted."
+msgstr "Erledigt! Element gelöscht."
+
+msgid "Done! Item updated."
+msgstr "Erledigt! Element aktualisiert."
+
+msgid "Done! Module configuration updated."
+msgstr "Erledigt! Modul Konfiguration aktualisiert."
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Edit date"
+msgstr "Bearbeitungsdatum"
+
+msgid "Edit dates workflow"
+msgstr ""
+
+msgid "Edit the date:"
+msgstr "Termin bearbeiten:"
+
+msgid "Edit this date"
+msgstr "Diesen Termin bearbeiten"
+
+msgid "Edit workflow for dates"
+msgstr ""
+
+msgid "Edit your date:"
+msgstr "Bearbeiten Sie Ihren Termin:"
+
+#, fuzzy
+msgid "Enable shrinking for date date image"
+msgstr "Aktivieren Sie das Schrumpfen für das Datum des Datumsbilds"
+
+msgid "Enable this option to insert images"
+msgstr "Diese Option aktivieren umbilder einzufügen"
+
+msgid "Enabled finder types"
+msgstr "Aktivierte Finder-Typen"
+
+msgid "End date"
+msgstr "Enddatum"
+
+#, fuzzy
+msgid "Enter any additions about your changes"
+msgstr "Geben Sie Ergänzungen zu Ihren Änderungen ein"
+
+#, fuzzy
+msgid "Enter any additions about your content"
+msgstr "Geben Sie Ergänzungen zu Ihren Inhalten ein"
+
+msgid "Enter the date description of the date"
+msgstr ""
+
+#, fuzzy
+msgid "Enter the date entries per page."
+msgstr "Geben Sie die Datei-Einträge pro Seite an."
+
+#, fuzzy
+msgid "Enter the date image of the date"
+msgstr "Geben Sie das Datumsbild des Datums ein"
+
+#, fuzzy
+msgid "Enter the date title of the date"
+msgstr "Geben Sie den Datumstitel des Datums ein"
+
+#, fuzzy
+msgid "Enter the date url of the date"
+msgstr "Geben Sie die Datums-URL des Datums ein"
+
+#, fuzzy
+msgid "Enter the end date of the date"
+msgstr "Geben Sie das Enddatum der Datei an"
+
+#, fuzzy
+msgid "Enter the shrink height"
+msgstr "Pixel für die reduziertebildhöhe."
+
+#, fuzzy
+msgid "Enter the shrink width"
+msgstr "Pixel für die reduziertebildbreite."
+
+#, fuzzy
+msgid "Enter the start date of the date"
+msgstr "Startdatum der Datei angeben"
+
+#, fuzzy
+msgid "Enter the thumbnail height display"
+msgstr "Thumbnail Höhe Display Ansicht eintragen."
+
+#, fuzzy
+msgid "Enter the thumbnail height edit"
+msgstr "Thumbnail Höhe Bearbeitungsansicht eintragen."
+
+#, fuzzy
+msgid "Enter the thumbnail height view"
+msgstr "Thumbnail Höhe Listenansicht eintragen."
+
+#, fuzzy
+msgid "Enter the thumbnail width display"
+msgstr "Thumbnail Breite Display Ansicht eintragen."
+
+#, fuzzy
+msgid "Enter the thumbnail width edit"
+msgstr "Thumbnail Breite Bearbeitungsansicht eintragen."
+
+#, fuzzy
+msgid "Enter the thumbnail width view"
+msgstr "Thumbnail Breite Listenansicht eintragen."
+
+msgid "Entry to display"
+msgstr "Einstiegspunkt für die Seite"
+
+msgid "Error! Could not create a category registry for the %entity% entity."
+msgstr ""
+"Fehler! Eine Kategorie-Registrierung für die Entität %entity% konnte nicht "
+"erstellt werden."
+
+msgid "Error! Could not determine workflow actions."
+msgstr "Fehler! Kann den zugeordneten Workflow nicht erkennen."
+
+msgid "Error! Creation attempt failed."
+msgstr "Fehler! Erstellung fehlgeschlagen."
+
+msgid "Error! Deletion attempt failed."
+msgstr "Fehler! Löschen fehlgeschlagen."
+
+msgid "Error! Invalid object type received."
+msgstr "Fehler! Ungültigen Objekttyp erhalten."
+
+#, fuzzy
+msgid "Error! It is not allowed to delete this date."
+msgstr "Fehler! Es ist nicht erlaubt, diese Datei zu löschen."
+
+msgid ""
+"Error! This file type is not allowed. Please choose another file format."
+msgstr ""
+"Fehler! Dieser Dateityp ist nicht erlaubt. Wähle bitte ein anderes Format."
+
+msgid "Error! This file type seems not to be a valid image."
+msgstr "Fehler! Dieser Dateityp scheint kein gültigesbild zu sein."
+
+msgid "Error! Update attempt failed."
+msgstr "Fehler! Aktualisierung fehlgeschlagen."
+
+msgid "Error: Invalid editor context given for external controller action."
+msgstr ""
+"Fehler: ungültiger Editor Kontext für externe Controller-Aktion gegeben."
+
+msgid "Error: invalid input."
+msgstr "Fehler: ungültige Eingabe."
+
+msgid "Example"
+msgstr "Beispiel"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Filter (expert option)"
+msgstr "Filter ( Expertenoption )"
+
+msgid "Find %name%"
+msgstr "Finde %name%"
+
+msgid "Frontend"
+msgstr "Frontend"
+
+msgid "GB"
+msgstr "GB"
+
+msgid "Hello %recipient%"
+msgstr "Hallo %recipient%"
+
+msgid "Here you can assign moderation groups for enhanced workflow actions."
+msgstr ""
+
+msgid "Here you can choose a custom creation date"
+msgstr "Hier kann ein benutzerdefiniertes Erstellungsdatum gewählt werden"
+
+msgid "Here you can choose a user which will be set as creator"
+msgstr ""
+"Hier können Sie einen Benutzer wählen, die als Ersteller festgelegt wird"
+
+msgid "Here you can configure parameters for list views."
+msgstr "Hier können Sie Parameter für die Listenansichten konfigurieren."
+
+msgid "Here you can inspect and amend the existing workflows."
+msgstr "Hier können Sie die bestehenden überprüfen und ergänzen Workflows."
+
+msgid "Hide content temporarily."
+msgstr "Verstecke Inhalt vorübergehend."
+
+msgid "Hook assignments"
+msgstr "Zuordnungen"
+
+#, fuzzy
+msgid "ID of date"
+msgstr "vom [ Datum ]"
+
+msgid ""
+"If you change this please save the block once to reload the parameters below."
+msgstr ""
+"Wenn das geändert wird, bitte den Block einmal speichern, um die Parameter "
+"unten neu zu laden."
+
+msgid "Image"
+msgstr "Bild"
+
+msgid "Image settings for dates date image"
+msgstr ""
+
+#, fuzzy
+msgid "Image with absolute url to the date"
+msgstr "Bild mit absoluter Url"
+
+#, fuzzy
+msgid "Image with relative link to the date"
+msgstr "Bild mit relativer Url"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Initial"
+msgstr "Anfänglich"
+
+msgid "Inset"
+msgstr "Einfügen (inset)"
+
+msgid "Integration"
+msgstr "Integration"
+
+msgid "Invalid object type received."
+msgstr "Fehler! Ungültigen Objekttyp erhalten."
+
+msgid "Invalid user identifier received."
+msgstr "Fehler! Ungültiger Benutzer Bezeichner aufgerufen."
+
+msgid "It's new state is: %state%"
+msgstr ""
+
+msgid "KB"
+msgstr "KB"
+
+msgid "Last update"
+msgstr "Letzte Aktualisierung"
+
+msgid "Latest dates"
+msgstr ""
+
+msgid "Link own dates on account page"
+msgstr ""
+
+#, fuzzy
+msgid "Link to the date:"
+msgstr "Link zu"
+
+msgid "Link to your date:"
+msgstr ""
+
+msgid "List views"
+msgstr "Listenansichten"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "Make content available again."
+msgstr "Inhalt wieder verfügbar machen."
+
+msgid "Manage settings for this application"
+msgstr "Einstellungen für diese Anwendung"
+
+msgid "Moderation"
+msgstr "Moderation"
+
+msgid "Moderation group for dates"
+msgstr ""
+
+msgid "Move content into the archive."
+msgstr "Inhalt ins Archiv verschieben"
+
+msgid "Move content out of the archive."
+msgstr "Inhalt aus dem Archiv holen"
+
+msgid "My dates"
+msgstr "Meine Termine"
+
+msgid "Needs to be located in the \"External/YourEntity/\" directory."
+msgstr "Muss sich in dem \"externen/YourEntity /\" Verzeichnis befinden."
+
+msgid "New content has been submitted"
+msgstr ""
+
+msgid "Newest"
+msgstr "Neueste"
+
+#, fuzzy
+msgid "No dates found."
+msgstr "Kein Dates gefunden"
+
+msgid "No entries found."
+msgstr "Keine Einträge gefunden."
+
+msgid "No item selected."
+msgstr "Kein Element ausgewählt."
+
+msgid "No such item found."
+msgstr "Kein entsprechendes Element gefunden."
+
+msgid "No such item."
+msgstr "Kein solches Element."
+
+msgid "Note: this value must not exceed %amount% characters."
+msgstr "Hinweis: Dieser Wert darf %amount% Zeichen nicht überschreiten."
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Object type"
+msgstr "Objekttyp"
+
+msgid ""
+"One date is waiting for approval.|%amount% dates are waiting for approval."
+msgstr ""
+
+msgid "Only digits are allowed."
+msgstr "Nur Ziffern sind erlaubt."
+
+msgid "Only images"
+msgstr "Nurbilder"
+
+msgid "Only item titles"
+msgstr "Nur Element Titel"
+
+msgid "Open file"
+msgstr "Datei öffnen"
+
+msgid "Open preview page"
+msgstr "Vorschau öffnen"
+
+msgid "Open quick view window"
+msgstr "Schnellansicht öffnen"
+
+msgid "Operation cancelled."
+msgstr "Vorgang abgebrochen."
+
+msgid "Outbound"
+msgstr "abschneiden (outbound)"
+
+msgid "Page size"
+msgstr "Seitengröße"
+
+msgid "Paste as"
+msgstr "Einfügen als"
+
+msgid "Preview"
+msgstr "Vorschau"
+
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+msgid "Quick navigation"
+msgstr "Schnellnavigation"
+
+msgid "RKAlmanacModule detail view"
+msgstr ""
+
+msgid "RKAlmanacModule items"
+msgstr ""
+
+msgid "RKAlmanacModule list view"
+msgstr ""
+
+msgid "Random"
+msgstr "Zufällig"
+
+msgid "Read more"
+msgstr "Weiterlesen"
+
+msgid "Recover"
+msgstr "Wiederherstellen"
+
+msgid "Reject"
+msgstr "Zurückgezogen"
+
+#, fuzzy
+msgid "Relative link to the date"
+msgstr "Relative Url zur Datei"
+
+msgid "Relative link to the image"
+msgstr "Relativer Link zumbild"
+
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgid "Reset to empty value"
+msgstr "Eingabe Löschen"
+
+msgid "Reuse"
+msgstr "Wiederverwenden"
+
+#, fuzzy
+msgid "Reuse for new date"
+msgstr "Wiederverwendung für neue Datei"
+
+msgid "Search"
+msgstr "Suchen"
+
+msgid "Search %name%"
+msgstr "Suchen %name%"
+
+#, fuzzy
+msgid "Search and select date"
+msgstr "Suche und Auswählen"
+
+msgid "Search for"
+msgstr "Suche nach"
+
+msgid "Send private message to %userName%"
+msgstr "Schicke eine private Nachricht an %userName%"
+
+msgid "Settings"
+msgstr "Konfiguration"
+
+msgid "Show all entries"
+msgstr "Zeige alle Einträge"
+
+msgid "Show also entries from other users"
+msgstr "Zeige alle Einträge auch von anderen Anwendern"
+
+msgid "Show only own entries"
+msgstr "Zeige nur eigene Einträge"
+
+msgid "Shows all items except these which are approved"
+msgstr "Zeigt alle Einträge außer den Freigegebenen"
+
+msgid "Shows all items except these which are archived"
+msgstr "Zeigt alle Elemente außer den Archivierten"
+
+msgid "Shows all items except these which are deferred"
+msgstr "Zeigt alle Elemente außer den zurückgestellten"
+
+msgid "Shows all items except these which are suspended"
+msgstr "Zeigt alle Elemente außer den Pausierten"
+
+msgid "Shows all items except these which are trashed"
+msgstr "Zeigt alle Elemente außer denen, die im Papierkorb sind"
+
+msgid "Shows all items except these which are waiting"
+msgstr "Zeigt alle Downloads außer den Wartenden"
+
+msgid "Shrink height date date image"
+msgstr ""
+
+msgid "Shrink width date date image"
+msgstr ""
+
+msgid "Sorry, but an error occured during the %action% action."
+msgstr "Sorry, aber ein Fehler ist bei Aktion %action% aufgetreten."
+
+msgid ""
+"Sorry, but an error occured during the %action% action. Please apply the "
+"changes again!"
+msgstr ""
+"Sorry, aber ein Fehler ist bei Aktion %action% aufgetreten. Bitte die "
+"Änderungen erneut anwenden!"
+
+#, fuzzy
+msgid ""
+"Sorry, but you can not create the date yet as other items are required which "
+"must be created before!"
+msgstr ""
+"Tut mir leid, aber Sie können die Infoseite noch nicht anlegen! "
+"Pflichteinträge müssen vorher gemacht werden!"
+
+msgid "Sort by"
+msgstr "Sortiere nach"
+
+msgid "Sort by %s"
+msgstr "Sortieren nach %s"
+
+msgid "Sort direction"
+msgstr "Sortierreihenfolge"
+
+msgid "Sorting"
+msgstr "Sortierung"
+
+msgid "Start date"
+msgstr "Anfangsdatum"
+
+msgid "State"
+msgstr "Status"
+
+msgid "Submit"
+msgstr "Absenden"
+
+#, fuzzy
+msgid "Submit and approve"
+msgstr "Bestätigen und freigeben"
+
+msgid "Submit and repeat"
+msgstr "Absenden und Wiederholen"
+
+msgid "Suspended"
+msgstr "Pausiert"
+
+msgid "Switch to administration area."
+msgstr "Wechsel zum Administrationsbereich."
+
+msgid "Switch to user area."
+msgstr "Wechsel zum Nutzerbereich."
+
+msgid "Template"
+msgstr "Vorlage"
+
+#, fuzzy
+msgid "The amount of dates shown per page"
+msgstr "Die Anzahl Alben, die pro Seite angezeigt werden"
+
+msgid ""
+"The cache directory \"%directory%\" does not exist. Please create it and "
+"make it writable for the webserver."
+msgstr ""
+"Der Cache-Verzeichnis \"%directory%\" ist nicht vorhanden. Bitte erstellen "
+"Sie es und machen Sie es für den Webserver beschreibbar."
+
+msgid "The enable shrinking option"
+msgstr "Die Option zur Bildverkleinerung"
+
+#, fuzzy
+msgid "The link own dates on account page option"
+msgstr "Die Option zur Anzeige der eigenen Alben im Benutzerkonto"
+
+msgid "The maximum amount of items to be shown."
+msgstr "Die maximale Anzahl von Elementen, die angezeigt werden."
+
+msgid "The maximum image height in pixels."
+msgstr "Die maximalebildhöhe in Pixel."
+
+msgid "The maximum image width in pixels."
+msgstr "Die maximalebildbreite in Pixel."
+
+#, fuzzy
+msgid "The title will be the identifier for the date"
+msgstr "Der Titel wird die Kennung für das Datum sein"
+
+msgid "The upload directories at \"%path%\" can be removed manually."
+msgstr "Das Upload-Verzeichnis \"%path%\" kann manuell entfernt werden."
+
+msgid ""
+"The upload directory \"%path%\" does not exist and could not be created. Try "
+"to create it yourself and make sure that this folder is accessible via the "
+"web and writable by the webserver."
+msgstr ""
+"Das Upload-Verzeichnis \"%path%\" ist nicht vorhanden und konnte nicht "
+"erstellt werden. Versuchen Sie es selbst und stellen Sie sicher, dass dieser "
+"Ordner über das Web zugänglich und vom Webserver beschreibbar ist."
+
+msgid "The value \"%value%\" is not allowed for the \"%property%\" property."
+msgstr ""
+"Der Wert \"%value%\" ist für die Eigenschaft \"%property%\" nicht zulässig."
+
+msgid "These options allow you to configure integration aspects."
+msgstr "Diese Optionen erlauben Integrationsaspekte zu konfigurieren."
+
+msgid ""
+"These remarks (like a reason for deny) are not stored, but added to any "
+"notification emails send to the creator."
+msgstr ""
+
+#, fuzzy
+msgid ""
+"These remarks (like questions about conformance) are not stored, but added "
+"to any notification emails send to our moderators."
+msgstr ""
+"Diese Bemerkungen (wie Fragen zur Konformität) werden nicht gespeichert, "
+"sondern zu Benachrichtigungen hinzugefügt, die an unsere Moderatoren "
+"gesendet werden."
+
+#, fuzzy
+msgid "This date is assigned to the following data objects:"
+msgstr "Dieses Album wird an folgenden Stellen verwendet:"
+
+#, fuzzy
+msgid "This date is not assigned to any data objects yet."
+msgstr "Dieses Album wird nirgendwo verwendet."
+
+msgid "This function requires JavaScript activated!"
+msgstr "Diese Funktion verlangt aktiviertes Javascript!"
+
+msgid "This is an optional filter."
+msgstr "Dies ist ein optionaler Filter"
+
+#, fuzzy
+msgid "This mail has been sent automatically by %siteName%."
+msgstr "Diese E-Mail wurde automatisch von%siteName% gesendet."
+
+msgid "Thumbnail height date date image display"
+msgstr ""
+
+#, fuzzy
+msgid "Thumbnail height date date image edit"
+msgstr "Miniaturbildhöhe Datum Datum Bild bearbeiten"
+
+#, fuzzy
+msgid "Thumbnail height date date image view"
+msgstr "Datum Datum Bildansicht der Miniaturansicht"
+
+msgid "Thumbnail height on display pages in pixels."
+msgstr "Thumbnail Höhe auf Display Seiten in Pixel."
+
+msgid "Thumbnail height on edit pages in pixels."
+msgstr "Thumbnail Höhe auf Edit Seiten in Pixel."
+
+msgid "Thumbnail height on view pages in pixels."
+msgstr "Thumbnail Höhe auf View Seiten in Pixel."
+
+msgid "Thumbnail mode (inset or outbound)."
+msgstr "Thumbnail Modus (inset oder outbound)."
+
+msgid "Thumbnail mode date date image"
+msgstr ""
+
+msgid "Thumbnail width date date image display"
+msgstr ""
+
+msgid "Thumbnail width date date image edit"
+msgstr ""
+
+#, fuzzy
+msgid "Thumbnail width date date image view"
+msgstr "Datumsbildansicht der Miniaturansicht"
+
+msgid "Thumbnail width on display pages in pixels."
+msgstr "Thumbnail Breite auf Display Seiten in Pixel."
+
+msgid "Thumbnail width on edit pages in pixels."
+msgstr "Thumbnail Breite auf Edit Seiten in Pixel."
+
+msgid "Thumbnail width on view pages in pixels."
+msgstr "Thumbnail Breite auf View Seiten in Pixel."
+
+msgid "Trash"
+msgstr "Papierkorb"
+
+msgid "Trashed"
+msgstr "Gelöscht"
+
+msgid "Unarchive"
+msgstr "Dearchivieren"
+
+msgid "Unpublish"
+msgstr "Veröffentlichung aufheben"
+
+msgid "Update"
+msgstr "Aktualisieren"
+
+msgid "Update configuration"
+msgstr "Update-Konfiguration"
+
+msgid "Update content and approve for immediate publishing."
+msgstr "Aktualisieren und Freigeben zum sofortigen Veröffentlichen."
+
+msgid "Update date"
+msgstr "Aktualisierungsdatum"
+
+msgid "Updated by %user"
+msgstr "Aktualisiert von %user"
+
+msgid "Updated by %user on %date"
+msgstr "Aktualisiert von %user am %date"
+
+msgid "Updated on %date"
+msgstr "Aktualisiert am %date"
+
+msgid "Updater"
+msgstr "Aktualisieren"
+
+msgid ""
+"Used to determine moderator user accounts for sending email notifications."
+msgstr ""
+
+msgid "View this object"
+msgstr "Dieses Objekt anzeigen"
+
+msgid "Visit this page"
+msgstr "Seite aufrufen"
+
+msgid "Waiting"
+msgstr "Wartend"
+
+msgid ""
+"Warning! The upload directory at \"%path%\" exists but is not writable by "
+"the webserver."
+msgstr ""
+"Warnung! Das Upload-Verzeichnis \"%path%\" besteht, ist allerdings nicht vom "
+"Webserver beschreibbar."
+
+#, fuzzy
+msgid "Welcome to the date section of the Almanac application."
+msgstr "Willkommen im Datumsbereich der Almanac-Anwendung."
+
+#, fuzzy
+msgid "Whether to add a link to dates of the current user on his account page"
+msgstr ""
+"Ob Alben des aktuellen Benutzers in seinem Benutzerkonto angezeigt werden "
+"sollen"
+
+msgid ""
+"Whether to enable shrinking huge images to maximum dimensions. Stores "
+"downscaled version of the original image."
+msgstr ""
+"Auswählen, um großebilder auf angegebene Dimensionen zu verkleinern. "
+"Speichert herunterskalierte Version des Originalbildes."
+
+msgid ""
+"Which sections are supported in the Finder component (used by Scribite plug-"
+"ins)."
+msgstr ""
+"Weche Sektionen in der Finder-Komponente genutzt werden sollen (genutzt "
+"durch Scribite Plugins)."
+
+msgid "With description"
+msgstr "Mit Beschreibung"
+
+#, fuzzy
+msgid "With selected dates"
+msgstr "ausgewählte Termine"
+
+msgid "Workflow state"
+msgstr "Workflow Status"
+
+msgid "Workflows"
+msgstr "Arbeitsabläufe"
+
+#, fuzzy
+msgid "Your date \"%entity%\" has been changed."
+msgstr "Ihr Datum \"% Entität%\" wurde geändert."
+
+msgid "Your submission has been deleted"
+msgstr ""
+
+msgid "Your submission has been updated"
+msgstr "Ihr Termineintrag wurde aktualisiert"
+
+msgid "date"
+msgstr "Datum"
+
+msgid "dates"
+msgstr "Daten"
+
+msgid "end of the date"
+msgstr "Ende des Termines"
+
+msgid "here you can tell a bit about the date"
+msgstr ""
+
+msgid "pixels"
+msgstr "Pixel"
+
+msgid "you can add a date URL"
+msgstr ""
+
+#, fuzzy
+msgid "you can upload one image"
+msgstr "Sie können lediglich ein Bild hochladen"
