@@ -22,4 +22,5 @@ use RK\AlmanacModule\Entity\Repository\Base\AbstractDateRepository;
 class DateRepository extends AbstractDateRepository
 {
     // feel free to add your own methods here, like for example reusable DQL queries
+    protected $defaultSortingField = 'startDate ASC';
 }
