@@ -12,6 +12,7 @@
 
 namespace RK\AlmanacModule\Helper;
 
+use Doctrine\ORM\QueryBuilder;
 use RK\AlmanacModule\Helper\Base\AbstractCollectionFilterHelper;
 
 /**
@@ -19,5 +20,8 @@ use RK\AlmanacModule\Helper\Base\AbstractCollectionFilterHelper;
  */
 class CollectionFilterHelper extends AbstractCollectionFilterHelper
 {
-    // feel free to extend the collection filter helper here
+    protected function applyDateRangeFilterForDate(QueryBuilder $qb, $alias = 'tbl')
+    {
+        return $qb;
+    }
 }
