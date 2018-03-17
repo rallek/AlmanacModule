@@ -107,7 +107,7 @@ msgid "Archived"
 msgstr "Archiviert"
 
 msgid "Ascending"
-msgstr "aufwärts"
+msgstr "Aufsteigend"
 
 msgid "Assigned dates"
 msgstr "Zugewiesene Termine"
@@ -270,13 +270,13 @@ msgid "Date url"
 msgstr "Link"
 
 msgid "Dates"
-msgstr "Datum"
+msgstr "Termine"
 
 msgid "Dates date image"
 msgstr ""
 
 msgid "Dates list"
-msgstr "Liste"
+msgstr "Terminliste"
 
 msgid "Dates pending approval"
 msgstr "Genehmigung ausstehend"
@@ -609,7 +609,7 @@ msgid "Link to the date:"
 msgstr "Link zu"
 
 msgid "Link to your date:"
-msgstr ""
+msgstr "Link zu ihrem Termin:"
 
 msgid "List views"
 msgstr "Listenansichten"
@@ -944,9 +944,8 @@ msgstr "Diese Funktion verlangt aktiviertes Javascript!"
 msgid "This is an optional filter."
 msgstr "Dies ist ein optionaler Filter"
 
-#, fuzzy
 msgid "This mail has been sent automatically by %siteName%."
-msgstr "Diese E-Mail wurde automatisch von%siteName% gesendet."
+msgstr "Diese E-Mail wurde automatisch von %siteName% gesendet."
 
 msgid "Thumbnail height date date image display"
 msgstr ""
@@ -1086,9 +1085,8 @@ msgstr "Workflow Status"
 msgid "Workflows"
 msgstr "Arbeitsabläufe"
 
-#, fuzzy
 msgid "Your date \"%entity%\" has been changed."
-msgstr "Ihr Datum \"% Entität%\" wurde geändert."
+msgstr "Ihr Termin \"%entität%\" wurde geändert."
 
 msgid "Your submission has been deleted"
 msgstr ""
@@ -1100,7 +1098,7 @@ msgid "date"
 msgstr "Datum"
 
 msgid "dates"
-msgstr "Daten"
+msgstr "Termine"
 
 msgid "end of the date"
 msgstr "Ende des Termines"
