@@ -25,6 +25,7 @@ use Zikula\Bundle\HookBundle\HookProviderInterface;
 use Zikula\Bundle\HookBundle\ServiceIdTrait;
 use Zikula\Common\Translator\TranslatorInterface;
 use RK\AlmanacModule\Entity\Factory\EntityFactory;
+use RK\AlmanacModule\Helper\ImageHelper;
 
 /**
  * Base class for ui hooks provider.
@@ -54,23 +55,31 @@ abstract class AbstractDateUiHooksProvider implements HookProviderInterface
     protected $templating;
 
     /**
+     * @var ImageHelper
+     */
+    protected $imageHelper;
+
+    /**
      * DateUiHooksProvider constructor.
      *
      * @param TranslatorInterface $translator
      * @param RequestStack        $requestStack
      * @param EntityFactory       $entityFactory
      * @param Twig_Environment    $twig
+     * @param ImageHelper         $imageHelper
      */
     public function __construct(
         TranslatorInterface $translator,
         RequestStack $requestStack,
         EntityFactory $entityFactory,
-        Twig_Environment $twig
+        Twig_Environment $twig,
+        ImageHelper $imageHelper
     ) {
         $this->translator = $translator;
         $this->requestStack = $requestStack;
         $this->entityFactory = $entityFactory;
         $this->templating = $twig;
+        $this->imageHelper = $imageHelper;
     }
 
     /**
@@ -329,6 +338,8 @@ abstract class AbstractDateUiHooksProvider implements HookProviderInterface
             $url = method_exists($hook, 'getUrl') ? $hook->getUrl() : null;
             $templateParameters['subscriberUrl'] = (null !== $url && is_object($url)) ? $url->serialize() : serialize([]);
         }
+
+        $templateParameters['relationThumbRuntimeOptions'] = $this->imageHelper->getCustomRuntimeOptions('', '', 'RKAlmanacModule_relateditem', 'controllerAction', ['action' => 'display']);
 
         $output = $this->templating->render($template, $templateParameters);
 

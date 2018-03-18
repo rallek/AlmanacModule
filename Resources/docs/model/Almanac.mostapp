@@ -13,7 +13,7 @@ application "Almanac" targets ZK15 {
     versionAllGeneratedFiles false
     separateAdminTemplates true
     generateTests false
-    markFiles ".gitignore,\r\nHelper/CollectionFilterHelper.php"
+    markFiles ".gitignore,\r\nHelper/CollectionFilterHelper.php,\r\nEntity/Repository/DateRepository.php"
     entities {
         entity "date" leading categorisable {
             nameMultiple "dates"

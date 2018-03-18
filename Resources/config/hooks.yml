@@ -27,6 +27,7 @@ services:
             - "@request_stack"
             - "@rk_almanac_module.entity_factory"
             - "@twig"
+            - "@rk_almanac_module.image_helper"
         tags:
             - { name: zikula.hook_provider, areaName: 'provider.rkalmanacmodule.ui_hooks.dates' }
 
